@@ -1,7 +1,13 @@
+// utils/emailService.js
 import SibApiV3Sdk from '@sendinblue/client';
 import brevoAPI from '../config/brevo.js';
 
 const adminEmail = process.env.ADMIN_EMAIL || 'admin@monentreprise.ht';
+
+// Helper: get the client URL dynamically, fallback to production domain
+const getClientUrl = () => {
+  return process.env.CLIENT_URL || 'https://monentreprise.onrender.com';
+};
 
 // Re-usable email sender
 export const sendEmail = async (to, subject, htmlContent) => {
@@ -25,7 +31,9 @@ export const sendEmail = async (to, subject, htmlContent) => {
 };
 
 // ---------- Base modern card wrapper (reusable) ----------
-const getBaseTemplate = (content, title = '') => `
+const getBaseTemplate = (content, title = '') => {
+  const clientUrl = getClientUrl();
+  return `
   <!DOCTYPE html>
   <html>
   <head>
@@ -47,13 +55,14 @@ const getBaseTemplate = (content, title = '') => `
         <hr style="border:0; border-top:1px solid #e9eef3; margin:32px 0 20px;">
         <p style="margin:0; font-size:12px; color:#8898aa; text-align:center;">
           &copy; ${new Date().getFullYear()} MonEntreprise. Tous droits réservés.<br>
-          <a href="${process.env.CLIENT_URL}" style="color:#d81b60; text-decoration:none;">monentreprise.ht</a>
+          <a href="${clientUrl}" style="color:#d81b60; text-decoration:none;">monentreprise.ht</a>
         </p>
       </div>
     </div>
   </body>
   </html>
-`;
+  `;
+};
 
 // Helper to inject main content
 const buildHtml = (innerHtml, title) => getBaseTemplate(innerHtml, title).replace('{{content}}', innerHtml);
@@ -62,6 +71,7 @@ const buildHtml = (innerHtml, title) => getBaseTemplate(innerHtml, title).replac
 
 // Welcome email (to new user)
 export const sendWelcomeEmail = async (email, name) => {
+  const clientUrl = getClientUrl();
   const inner = `
     <div style="text-align:center; margin-bottom:24px;">
       <h1 style="font-size:28px; font-weight:700; color:#1a2c3e; margin:0 0 8px;">Bienvenue chez MonEntreprise 🚀</h1>
@@ -71,7 +81,7 @@ export const sendWelcomeEmail = async (email, name) => {
     <p style="font-size:16px; color:#2d3e50;">Merci de vous être inscrit. Nous sommes impatients de vous accompagner dans votre transformation digitale.</p>
     <div style="background:#f8fafc; border-radius:16px; padding:20px; margin:24px 0;">
       <p style="margin:0 0 12px; font-weight:600;">✨ Découvrez nos services :</p>
-      <a href="${process.env.CLIENT_URL}/services" style="background:#d81b60; color:#ffffff; padding:12px 24px; border-radius:40px; text-decoration:none; display:inline-block; font-weight:500;">Explorer les services →</a>
+      <a href="${clientUrl}/services" style="background:#d81b60; color:#ffffff; padding:12px 24px; border-radius:40px; text-decoration:none; display:inline-block; font-weight:500;">Explorer les services →</a>
     </div>
   `;
   const html = getBaseTemplate(inner, 'Bienvenue chez MonEntreprise');
@@ -96,7 +106,8 @@ export const sendNewUserAlert = async (userData) => {
 
 // Reset password email (to user)
 export const sendResetPasswordEmail = async (email, resetToken) => {
-  const resetUrl = `${process.env.CLIENT_URL}/reset-password/${resetToken}`;
+  const clientUrl = getClientUrl();
+  const resetUrl = `${clientUrl}/reset-password/${resetToken}`;
   const inner = `
     <div style="text-align:center; margin-bottom:24px;">
       <h2 style="font-size:24px; color:#1a2c3e;">🔐 Réinitialisation du mot de passe</h2>
@@ -140,12 +151,13 @@ export const sendContactNotification = async (contactData) => {
 
 // Auto-reply to user after contact form
 export const sendContactAutoReply = async (email) => {
+  const clientUrl = getClientUrl();
   const inner = `
     <div style="text-align:center;">
       <h2 style="font-size:24px;">🙏 Merci de nous avoir contactés</h2>
       <p style="font-size:16px;">Notre équipe vous répondra dans les meilleurs délais (sous 24h).</p>
       <div style="margin:24px 0;">
-        <a href="${process.env.CLIENT_URL}/services" class="button" style="background:#d81b60; color:white; padding:10px 20px; border-radius:40px; text-decoration:none;">Découvrir nos services →</a>
+        <a href="${clientUrl}/services" class="button" style="background:#d81b60; color:white; padding:10px 20px; border-radius:40px; text-decoration:none;">Découvrir nos services →</a>
       </div>
     </div>
   `;
@@ -171,8 +183,9 @@ export const sendOrderNotification = async (orderData) => {
   return sendEmail(adminEmail, '🆕 Nouvelle demande de projet', html);
 };
 
-// ✅ NEW: Order confirmation to user (card, responsive)
+// Order confirmation to user (card, responsive)
 export const sendOrderConfirmationToUser = async (orderData) => {
+  const clientUrl = getClientUrl();
   const inner = `
     <div style="text-align:center; margin-bottom:24px;">
       <h1 style="font-size:28px; color:#1a2c3e;">📦 Demande reçue !</h1>
@@ -187,9 +200,9 @@ export const sendOrderConfirmationToUser = async (orderData) => {
         <tr><td style="padding:8px 0;"><strong>Référence</strong></td><td style="padding:8px 0;">#${Date.now().toString().slice(-6)}</td></tr>
       </table>
     </div>
-    <p style="font-size:14px; color:#475569;">Notre équipe vous recontactera sous 24h pour valider les détails. En attendant, vous pouvez suivre l’avancement dans votre espace client.</p>
+    <p style="font-size:14px; color:#475569;">Notre équipe vous recontactera sous 24h pour valider les détails. En attendant, vous pouvez consulter nos services.</p>
     <div style="text-align:center; margin-top:24px;">
-      <a href="${process.env.CLIENT_URL}/dashboard" style="background:#d81b60; color:white; padding:10px 20px; border-radius:40px; text-decoration:none;">Suivre ma demande →</a>
+      <a href="${clientUrl}/services" style="background:#d81b60; color:white; padding:10px 20px; border-radius:40px; text-decoration:none;">Voir nos services →</a>
     </div>
   `;
   const html = getBaseTemplate(inner, 'Confirmation de votre commande');
@@ -198,6 +211,7 @@ export const sendOrderConfirmationToUser = async (orderData) => {
 
 // Order status update email to client (enhanced card)
 export const sendOrderStatusUpdate = async (order) => {
+  const clientUrl = getClientUrl();
   let statusMessage = '';
   let statusIcon = '🔄';
   if (order.status === 'contacted') {
@@ -218,7 +232,10 @@ export const sendOrderStatusUpdate = async (order) => {
     <div style="background:#f1f5f9; border-radius:16px; padding:16px; margin:24px 0;">
       <p style="margin:0;">${statusMessage}</p>
     </div>
-    <p>Pour toute question, répondez à cet email ou visitez votre espace client.</p>
+    <p>Pour toute question, répondez à cet email ou visitez notre site.</p>
+    <div style="text-align:center; margin-top:24px;">
+      <a href="${clientUrl}" style="background:#d81b60; color:white; padding:10px 20px; border-radius:40px; text-decoration:none;">Accéder au site →</a>
+    </div>
   `;
   const html = getBaseTemplate(inner, 'Statut de votre commande');
   return sendEmail(order.email, `Votre projet : ${order.status === 'completed' ? 'Terminé' : 'Mis à jour'}`, html);
@@ -226,6 +243,7 @@ export const sendOrderStatusUpdate = async (order) => {
 
 // Newsletter confirmation to user (card)
 export const sendNewsletterConfirmation = async (email) => {
+  const clientUrl = getClientUrl();
   const inner = `
     <div style="text-align:center;">
       <h2 style="font-size:26px;">📰 Abonnement confirmé</h2>
@@ -234,13 +252,16 @@ export const sendNewsletterConfirmation = async (email) => {
         <p style="margin:0;">✨ Vous recevrez nos actualités, offres exclusives et conseils digitaux directement dans votre boîte mail.</p>
       </div>
       <p style="font-size:14px;">À très bientôt,<br>L’équipe MonEntreprise</p>
+      <div style="margin-top:24px;">
+        <a href="${clientUrl}" style="background:#d81b60; color:white; padding:10px 20px; border-radius:40px; text-decoration:none;">Visiter le site →</a>
+      </div>
     </div>
   `;
   const html = getBaseTemplate(inner, 'Confirmation newsletter');
   return sendEmail(email, 'Confirmation d’inscription à la newsletter', html);
 };
 
-// ✅ NEW: Admin alert for new newsletter subscription
+// Admin alert for new newsletter subscription
 export const sendNewsletterAdminAlert = async (subscriberEmail) => {
   const inner = `
     <div style="border-left:4px solid #d81b60; padding-left:16px;">
