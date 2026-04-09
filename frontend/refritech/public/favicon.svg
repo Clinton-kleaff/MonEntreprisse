@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <!-- Main brand gradient -->
+    <!-- Brand gradient -->
     <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#d81b60"/>
       <stop offset="100%" stop-color="#ff4da6"/>
     </linearGradient>
 
-    <!-- Soft glow -->
+    <!-- Glow -->
     <filter id="glow">
       <feGaussianBlur stdDeviation="1.2" result="coloredBlur"/>
       <feMerge>
@@ -15,40 +15,38 @@
       </feMerge>
     </filter>
 
-    <!-- Subtle shadow for depth -->
+    <!-- Subtle shadow -->
     <filter id="shadow">
-      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000000" flood-opacity="0.15"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000000" flood-opacity="0.18"/>
     </filter>
   </defs>
 
-  <!-- Removed background rectangle completely -->
-
-  <!-- Open circle (modern floating stroke) -->
-  <circle cx="32" cy="32" r="22"
+  <!-- Bigger, more dominant open circle -->
+  <circle cx="32" cy="32" r="26"
           stroke="url(#grad)"
-          stroke-width="4"
+          stroke-width="5"
           fill="none"
           stroke-linecap="round"
-          stroke-dasharray="120 45"
+          stroke-dasharray="135 55"
           transform="rotate(40 32 32)"
           filter="url(#shadow)"/>
 
-  <!-- Center text -->
-  <text x="50%" y="50%"
+  <!-- Larger centered logo text -->
+  <text x="50%" y="52%"
         text-anchor="middle"
         dominant-baseline="middle"
-        font-size="16"
+        font-size="20"
         font-family="Arial, Helvetica, sans-serif"
-        font-weight="700"
+        font-weight="800"
         fill="#d81b60"
         filter="url(#shadow)">
     WGT
   </text>
 
-  <!-- Sparkles (more subtle + modern) -->
-  <g fill="#ff4da6" filter="url(#glow)" opacity="0.9">
-    <circle cx="50" cy="44" r="1.1"/>
-    <circle cx="53" cy="41" r="0.7"/>
-    <circle cx="46" cy="48" r="0.6"/>
+  <!-- Slightly repositioned sparkles -->
+  <g fill="#ff4da6" filter="url(#glow)" opacity="0.95">
+    <circle cx="52" cy="44" r="1.2"/>
+    <circle cx="55" cy="40" r="0.8"/>
+    <circle cx="47" cy="49" r="0.7"/>
   </g>
 </svg>
