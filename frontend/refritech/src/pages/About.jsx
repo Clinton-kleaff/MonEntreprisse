@@ -32,7 +32,7 @@ export default function About() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-                À propos de <span className="text-[#d81b60]">MonEntreprise</span>
+                À propos de <span className="text-[#d81b60]">Wagrade</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Nous aidons les entreprises à se transformer grâce aux technologies modernes.
@@ -60,7 +60,7 @@ export default function About() {
                   Accélérer votre croissance digitale
                 </h2>
                 <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                  Chez MonEntreprise, nous croyons que chaque entreprise, quelle que soit sa taille,
+                  Chez Wagrade, nous croyons que chaque entreprise, quelle que soit sa taille,
                   mérite des solutions digitales performantes, accessibles et évolutives.
                   Notre équipe d'experts combine créativité, technologie et stratégie pour
                   transformer vos idées en succès concrets.

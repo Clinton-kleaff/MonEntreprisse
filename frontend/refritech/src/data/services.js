@@ -86,6 +86,7 @@ export const services = [
     description: "Audit & optimisation continue",
     fullDescription: "Améliorez votre visibilité sur Google avec un audit SEO complet et des optimisations techniques.",
     price: "$200+",
+    // image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop", Analytics graph
     icon: "TrendingUp",
     features: [
       "Audit technique complet",

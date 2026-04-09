@@ -138,7 +138,7 @@ export default function Contact() {
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail size={18} className="text-gray-400" />
-                    <a href="mailto:contact@monentreprise.ht" className="text-gray-600 hover:text-[#d81b60]">contact@monentreprise.ht</a>
+                    <a href="mailto:contact@Wagrade.ht" className="text-gray-600 hover:text-[#d81b60]">contact@Wagrade.ht</a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock size={18} className="text-gray-400" />

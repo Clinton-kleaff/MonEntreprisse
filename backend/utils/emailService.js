@@ -2,11 +2,11 @@
 import SibApiV3Sdk from '@sendinblue/client';
 import brevoAPI from '../config/brevo.js';
 
-const adminEmail = process.env.ADMIN_EMAIL || 'admin@monentreprise.ht';
+const adminEmail = process.env.ADMIN_EMAIL || 'admin@Wagrade.ht';
 
 // Helper: get the client URL dynamically, fallback to production domain
 const getClientUrl = () => {
-  return process.env.CLIENT_URL || 'https://monentreprise.onrender.com';
+  return process.env.CLIENT_URL || 'https://Wagrade.onrender.com';
 };
 
 // Re-usable email sender
@@ -54,8 +54,8 @@ const getBaseTemplate = (content, title = '') => {
         ${content}
         <hr style="border:0; border-top:1px solid #e9eef3; margin:32px 0 20px;">
         <p style="margin:0; font-size:12px; color:#8898aa; text-align:center;">
-          &copy; ${new Date().getFullYear()} MonEntreprise. Tous droits réservés.<br>
-          <a href="${clientUrl}" style="color:#d81b60; text-decoration:none;">monentreprise.ht</a>
+          &copy; ${new Date().getFullYear()} Wagrade. Tous droits réservés.<br>
+          <a href="${clientUrl}" style="color:#d81b60; text-decoration:none;">Wagrade.ht</a>
         </p>
       </div>
     </div>
@@ -74,7 +74,7 @@ export const sendWelcomeEmail = async (email, name) => {
   const clientUrl = getClientUrl();
   const inner = `
     <div style="text-align:center; margin-bottom:24px;">
-      <h1 style="font-size:28px; font-weight:700; color:#1a2c3e; margin:0 0 8px;">Bienvenue chez MonEntreprise 🚀</h1>
+      <h1 style="font-size:28px; font-weight:700; color:#1a2c3e; margin:0 0 8px;">Bienvenue chez Wagrade 🚀</h1>
       <p style="color:#5a6e8a; font-size:16px;">Nous sommes ravis de vous compter parmi nous</p>
     </div>
     <p style="font-size:16px; color:#2d3e50;">Bonjour <strong>${name}</strong>,</p>
@@ -84,8 +84,8 @@ export const sendWelcomeEmail = async (email, name) => {
       <a href="${clientUrl}/services" style="background:#d81b60; color:#ffffff; padding:12px 24px; border-radius:40px; text-decoration:none; display:inline-block; font-weight:500;">Explorer les services →</a>
     </div>
   `;
-  const html = getBaseTemplate(inner, 'Bienvenue chez MonEntreprise');
-  return sendEmail(email, 'Bienvenue chez MonEntreprise', html);
+  const html = getBaseTemplate(inner, 'Bienvenue chez Wagrade');
+  return sendEmail(email, 'Bienvenue chez Wagrade', html);
 };
 
 // Admin alert on new user registration
@@ -192,7 +192,7 @@ export const sendOrderConfirmationToUser = async (orderData) => {
       <p style="color:#5a6e8a;">Nous avons bien enregistré votre projet</p>
     </div>
     <p style="font-size:16px;">Bonjour <strong>${orderData.name}</strong>,</p>
-    <p style="font-size:16px;">Merci d’avoir fait confiance à MonEntreprise. Voici le récapitulatif de votre demande :</p>
+    <p style="font-size:16px;">Merci d’avoir fait confiance à Wagrade. Voici le récapitulatif de votre demande :</p>
     <div style="background:#f8fafc; border-radius:20px; padding:20px; margin:24px 0;">
       <table style="width:100%; border-collapse:collapse;">
         <tr><td style="padding:8px 0; border-bottom:1px solid #e2e8f0;"><strong>Service demandé</strong></td><td style="padding:8px 0; border-bottom:1px solid #e2e8f0;">${orderData.service}</td></tr>
@@ -251,7 +251,7 @@ export const sendNewsletterConfirmation = async (email) => {
       <div style="background:#eef2ff; border-radius:20px; padding:20px; margin:24px 0;">
         <p style="margin:0;">✨ Vous recevrez nos actualités, offres exclusives et conseils digitaux directement dans votre boîte mail.</p>
       </div>
-      <p style="font-size:14px;">À très bientôt,<br>L’équipe MonEntreprise</p>
+      <p style="font-size:14px;">À très bientôt,<br>L’équipe Wagrade</p>
       <div style="margin-top:24px;">
         <a href="${clientUrl}" style="background:#d81b60; color:white; padding:10px 20px; border-radius:40px; text-decoration:none;">Visiter le site →</a>
       </div>
