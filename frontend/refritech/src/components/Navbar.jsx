@@ -49,7 +49,7 @@ export default function Navbar() {
             {/* Left: Logo */}
             <div className="justify-self-start">
               <Link to="/" className="text-2xl font-bold text-[#d81b60]">
-                TechWAGTech
+                WaGradeTech
               </Link>
             </div>
 
@@ -173,7 +173,7 @@ export default function Navbar() {
               <div className="relative bg-gradient-to-r from-[#d81b60]/5 to-white px-6 pt-8 pb-4 border-b border-gray-100">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h2 className="text-2xl font-bold text-[#d81b60]">TechWAGTech</h2>
+                    <h2 className="text-2xl font-bold text-[#d81b60]">WaGradeTech</h2>
                     <p className="text-xs text-gray-400 mt-1">Solutions digitales modernes</p>
                   </div>
                   <button
@@ -262,7 +262,7 @@ export default function Navbar() {
                   )}
                 </div>
                 <p className="text-center text-xs text-gray-400 mt-6">
-                  © {new Date().getFullYear()} TechWAGTech
+                  © {new Date().getFullYear()} WaGradeTech
                 </p>
               </div>
             </motion.div>
