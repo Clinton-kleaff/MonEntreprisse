@@ -1,7 +1,16 @@
+// src/utils/api.js
 import axios from "axios";
 
-// Get API base URL from environment variables
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+// Determine base URL: use environment variable, else localhost for dev, relative for prod
+const getBaseUrl = () => {
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  // In production, use relative path; in development, use localhost:5000
+  return import.meta.env.PROD ? '/api' : 'http://localhost:5000/api';
+};
+
+const API_BASE = getBaseUrl();
 
 // Create axios instance
 const api = axios.create({
@@ -30,7 +39,10 @@ api.interceptors.response.use(
       // Unauthorized – clear token and redirect to login
       localStorage.removeItem("authToken");
       localStorage.removeItem("user");
-      window.location.href = "/login";
+      // Only redirect if not already on login page to avoid loops
+      if (window.location.pathname !== '/login') {
+        window.location.href = "/login";
+      }
     }
     return Promise.reject(error);
   }
