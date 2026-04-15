@@ -77,7 +77,7 @@ export default function ServiceDetail() {
                       </div>
                     )}
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-500">
+                  <div className="flex items-center gap-2 text-sm text-gray-500 max-sm:whitespace-nowrap">
                     <Clock size={14} /> Livraison rapide
                     <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
                     <Users size={14} /> +1200 projets réalisés
