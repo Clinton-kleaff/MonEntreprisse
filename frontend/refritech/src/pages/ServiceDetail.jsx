@@ -1,14 +1,18 @@
+// src/pages/ServiceDetail.jsx
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { services } from "../data/services";
 import { Helmet } from "react-helmet-async";
-import { CheckCircle, ArrowLeft, ShoppingCart, Calendar, Clock, Users, Zap } from "lucide-react";
+import { CheckCircle, ArrowLeft, ShoppingCart, Calendar, Clock, Lock, Users, Zap, Image as ImageIcon } from "lucide-react";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import ImageGalleryModal from "../components/ImageGalleryModal";
 
 export default function ServiceDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const service = services.find((s) => s.id === id);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
   if (!service) {
     return (
@@ -22,13 +26,14 @@ export default function ServiceDetail() {
   }
 
   const handleOrder = () => {
-    // Navigate to order page with the service data in state
     navigate("/order", { state: { service: { id: service.id, title: service.title } } });
     toast.success(`Service "${service.title}" présélectionné !`, {
       duration: 3000,
       icon: "🎯",
     });
   };
+
+  const firstImage = service.images && service.images[0];
 
   return (
     <>
@@ -55,8 +60,23 @@ export default function ServiceDetail() {
           >
             <div className="p-6 md:p-10">
               <div className="flex flex-wrap justify-between items-start gap-4 mb-6">
-                <div>
-                  <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{service.title}</h1>
+                <div className="flex-1">
+                  <div className="flex items-center gap-4 flex-wrap mb-2">
+                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900">{service.title}</h1>
+                    {/* Small square thumbnail on detail page */}
+                    {firstImage && (
+                      <div
+                        onClick={() => setIsGalleryOpen(true)}
+                        className="w-16 h-16 rounded-lg overflow-hidden shadow-md cursor-pointer hover:ring-2 hover:ring-[#d81b60] transition-all flex-shrink-0"
+                      >
+                        <img
+                          src={firstImage}
+                          alt={service.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    )}
+                  </div>
                   <div className="flex items-center gap-2 text-sm text-gray-500">
                     <Clock size={14} /> Livraison rapide
                     <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
@@ -96,16 +116,33 @@ export default function ServiceDetail() {
                 >
                   <Calendar size={18} /> Demander un rendez-vous
                 </Link>
+                {/* Voir image button */}
+                {service.images && service.images.length > 0 && (
+                  <button
+                    onClick={() => setIsGalleryOpen(true)}
+                    className="inline-flex items-center gap-2 border-2 border-[#d81b60] text-[#d81b60] px-8 py-3 rounded-xl font-semibold hover:bg-[#d81b60] hover:text-white transition"
+                  >
+                    <ImageIcon size={18} /> Voir les images
+                  </button>
+                )}
               </div>
 
               {/* Additional trust badge */}
               <div className="mt-8 pt-6 border-t border-gray-100 text-center text-sm text-gray-400">
-                🔒 Paiement sécurisé • Support 24/7 • Sans engagement
+                <Lock size={16} className="inline mr-1 mb-1 text-[#d81b60]" /> Paiement sécurisé • Support 24/7 • Sans engagement
               </div>
             </div>
           </motion.div>
         </div>
       </div>
+
+      {/* Image Gallery Modal */}
+      <ImageGalleryModal
+        isOpen={isGalleryOpen}
+        onClose={() => setIsGalleryOpen(false)}
+        images={service.images || []}
+        title={service.title}
+      />
     </>
   );
 }

@@ -12,9 +12,9 @@ export default function Hero() {
           <div className="flex-1 text-left z-10 w-full">
             {/* Rating Badge – now higher on laptops */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-5 sm:mb-6 text-xs sm:text-sm text-gray-500 font-medium">
-              <span className="flex items-center whitespace-nowrap">⭐ 4.8</span>
+              <span className="flex items-center whitespace-nowrap">⭐ 4.9</span>
               <span className="flex items-center whitespace-nowrap">G 4.5</span>
-              <span className="text-gray-400 whitespace-normal">basé sur 1,200+ avis</span>
+              <span className="text-gray-400 whitespace-normal">basé sur 200+ avis</span>
             </div>
 
             <motion.h1
@@ -32,7 +32,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-base sm:text-lg lg:text-xl text-gray-600 mb-8 sm:mb-10 max-w-xl leading-relaxed"
             >
-              Sites web, applications, intelligence artificielle et automatisation pour gagner du temps et accélérer votre croissance.
+              Sites web, Applications, Intelligence Artificielle (IA) et Automatisation pour gagner du temps et accélérer votre croissance.
             </motion.p>
 
             <motion.div
@@ -97,17 +97,17 @@ export default function Hero() {
         </div>
 
         {/* Logo Cloud */}
-        <div className="mt-16 sm:mt-20 pt-8 sm:pt-10 border-t border-gray-100">
+        {/* <div className="mt-16 sm:mt-20 pt-8 sm:pt-10 border-t border-gray-100">
           <p className="text-center text-xs font-semibold text-gray-400 uppercase tracking-widest mb-6 sm:mb-8">
             Utilisé par +7,000 entreprises
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 md:gap-16 opacity-40 grayscale">
+          {/* <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 md:gap-16 opacity-40 grayscale">
              <span className="font-bold text-base sm:text-xl text-gray-800">EBAY</span>
              <span className="font-bold text-base sm:text-xl text-gray-800">PWC</span>
              <span className="font-bold text-base sm:text-xl text-gray-800">SAMSONITE</span>
              <span className="font-bold text-base sm:text-xl text-gray-800">TOAST</span>
-          </div>
-        </div>
+          </div> 
+        </div> */}
       </div>
     </section>
   );

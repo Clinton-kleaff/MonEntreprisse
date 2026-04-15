@@ -33,7 +33,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold text-white mb-4">Wagrade</h3>
+            <h3 className="text-xl font-bold text-white mb-4">WaGradeTech</h3>
             <p className="text-gray-400 text-sm mb-4">
               Solutions digitales modernes pour accélérer votre croissance.
             </p>
@@ -75,7 +75,7 @@ export default function Footer() {
                 <Phone size={14} /> +509 1234 5678
               </div>
               <div className="flex items-center gap-2 text-sm text-gray-400">
-                <Mail size={14} /> contact@wagrade.ht
+                <Mail size={14} /> contact@wagradetech.ht
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} Wagrade — Tous droits réservés
+          © {new Date().getFullYear()} WaGradeTech — Tous droits réservés
         </div>
       </div>
     </footer>

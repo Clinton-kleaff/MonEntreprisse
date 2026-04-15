@@ -47,7 +47,7 @@ export default function Register() {
   return (
     <>
       <Helmet>
-        <title>Inscription | Wagrade</title>
+        <title>Inscription | WaGradeTech</title>
       </Helmet>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <motion.div

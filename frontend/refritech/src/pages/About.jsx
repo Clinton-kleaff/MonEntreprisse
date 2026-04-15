@@ -32,11 +32,11 @@ export default function About() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-                À propos de <span className="text-[#d81b60]">Wagrade</span>
+                À propos de <span className="text-[#d81b60]">WaGradeTech</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Nous aidons les entreprises à se transformer grâce aux technologies modernes.
-                Fondée en 2020, notre mission est de démocratiser l'accès aux solutions digitales de qualité.
+                Fondée en 2025, notre mission est de démocratiser l'accès aux solutions digitales de qualité.
               </p>
             </motion.div>
           </div>
@@ -60,7 +60,7 @@ export default function About() {
                   Accélérer votre croissance digitale
                 </h2>
                 <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                  Chez Wagrade, nous croyons que chaque entreprise, quelle que soit sa taille,
+                  Chez WaGradeTech, nous croyons que chaque entreprise, quelle que soit sa taille,
                   mérite des solutions digitales performantes, accessibles et évolutives.
                   Notre équipe d'experts combine créativité, technologie et stratégie pour
                   transformer vos idées en succès concrets.
@@ -165,3 +165,6 @@ export default function About() {
     </>
   );
 }
+
+
+// Be silent

@@ -25,3 +25,34 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-500;
 }
+
+
+
+
+
+/* Add to your global CSS file (e.g., index.css or App.css) */
+/* Custom scrollbar matching the website's red magenta color */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #d81b60;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #ad1457;
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #d81b60 #f1f1f1;
+}
