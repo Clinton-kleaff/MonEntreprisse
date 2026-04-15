@@ -17,6 +17,8 @@ export const services = [
     ],
     popular: true,
     images: [
+      "https://live.staticflickr.com/65535/55209176557_fae86bdef6_c.jpg",
+      "https://live.staticflickr.com/65535/55209176557_fae86bdef6_c.jpg",  
       "https://picsum.photos/id/101/800/600",
       "https://picsum.photos/id/102/800/600",
       "https://picsum.photos/id/103/800/600",
