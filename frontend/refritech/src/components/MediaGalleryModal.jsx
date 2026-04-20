@@ -48,8 +48,7 @@ export default function MediaGalleryModal({ isOpen, onClose, videos, title }) {
                       <video
                         src={video}
                         autoPlay
-                        loop
-                        muted
+                        loop                      
                         playsInline
                         controls={false}
                         className="w-full h-auto max-h-[400px] object-contain bg-black/5 rounded-xl"
