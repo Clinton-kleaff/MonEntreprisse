@@ -2,11 +2,17 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { services } from "../data/services";
 import { Helmet } from "react-helmet-async";
-import { CheckCircle, ArrowLeft, ShoppingCart, Calendar, Clock, Lock, Users, Zap, Image as ImageIcon } from "lucide-react";
+import { CheckCircle, ArrowLeft, ShoppingCart, Calendar, Clock, Lock, Users, Zap, Video as VideoIcon } from "lucide-react";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import ImageGalleryModal from "../components/ImageGalleryModal";
+import MediaGalleryModal from "../components/MediaGalleryModal";
+
+// Helper to get Cloudinary video thumbnail (first frame)
+const getVideoThumbnail = (videoUrl) => {
+  if (!videoUrl || !videoUrl.includes('cloudinary.com')) return videoUrl;
+  return videoUrl.replace('/upload/', '/upload/so_0,f_jpg,w_120,h_120,c_fill/');
+};
 
 export default function ServiceDetail() {
   const { id } = useParams();
@@ -33,7 +39,8 @@ export default function ServiceDetail() {
     });
   };
 
-  const firstImage = service.images && service.images[0];
+  const firstVideo = service.videos && service.videos[0];
+  const videoThumbnail = firstVideo ? getVideoThumbnail(firstVideo) : null;
 
   return (
     <>
@@ -63,14 +70,14 @@ export default function ServiceDetail() {
                 <div className="flex-1">
                   <div className="flex items-center gap-4 flex-wrap mb-2">
                     <h1 className="text-3xl md:text-4xl font-bold text-gray-900">{service.title}</h1>
-                    {/* Small square thumbnail on detail page */}
-                    {firstImage && (
+                    {/* Video thumbnail preview */}
+                    {videoThumbnail && (
                       <div
                         onClick={() => setIsGalleryOpen(true)}
                         className="w-16 h-16 rounded-lg overflow-hidden shadow-md cursor-pointer hover:ring-2 hover:ring-[#d81b60] transition-all flex-shrink-0"
                       >
                         <img
-                          src={firstImage}
+                          src={videoThumbnail}
                           alt={service.title}
                           className="w-full h-full object-cover"
                         />
@@ -116,13 +123,13 @@ export default function ServiceDetail() {
                 >
                   <Calendar size={18} /> Demander un rendez-vous
                 </Link>
-                {/* Voir image button */}
-                {service.images && service.images.length > 0 && (
+                {/* Voir vidéos button */}
+                {service.videos && service.videos.length > 0 && (
                   <button
                     onClick={() => setIsGalleryOpen(true)}
                     className="inline-flex items-center gap-2 border-2 border-[#d81b60] text-[#d81b60] px-8 py-3 rounded-xl font-semibold hover:bg-[#d81b60] hover:text-white transition"
                   >
-                    <ImageIcon size={18} /> Voir les images
+                    <VideoIcon size={18} /> Voir les vidéos
                   </button>
                 )}
               </div>
@@ -136,11 +143,11 @@ export default function ServiceDetail() {
         </div>
       </div>
 
-      {/* Image Gallery Modal */}
-      <ImageGalleryModal
+      {/* Media Gallery Modal */}
+      <MediaGalleryModal
         isOpen={isGalleryOpen}
         onClose={() => setIsGalleryOpen(false)}
-        images={service.images || []}
+        videos={service.videos || []}
         title={service.title}
       />
     </>

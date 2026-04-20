@@ -16,14 +16,9 @@ export const services = [
       "Tests A/B prêts pour améliorer continuellement vos résultats"
     ],
     popular: true,
-    images: [
-      "https://live.staticflickr.com/65535/55209176557_fae86bdef6_c.jpg",
-      "https://live.staticflickr.com/65535/55209176557_fae86bdef6_c.jpg",  
-      "https://picsum.photos/id/101/800/600",
-      "https://picsum.photos/id/102/800/600",
-      "https://picsum.photos/id/103/800/600",
-      "https://picsum.photos/id/104/800/600",
-      "https://picsum.photos/id/105/800/600"
+    videos: [
+      "https://res.cloudinary.com/drjaj6ya2/video/upload/v1776715858/202604201313_1_cy6dgm.mp4",
+      // Add more video URLs for this service if needed
     ]
   },
   {
@@ -41,11 +36,9 @@ export const services = [
       "Hébergement inclus pendant 1 an",
       "Maintenance 3 mois pour un démarrage serein"
     ],
-    images: [
-      "https://picsum.photos/id/106/800/600",
-      "https://picsum.photos/id/107/800/600",
-      "https://picsum.photos/id/108/800/600",
-      "https://picsum.photos/id/109/800/600"
+    videos: [
+      // Replace with actual Cloudinary video URLs for Web Application service
+      "https://res.cloudinary.com/drjaj6ya2/video/upload/v1776715858/202604201313_1_cy6dgm.mp4",
     ]
   },
   {
@@ -64,12 +57,9 @@ export const services = [
       "Apprentissage continu pour des performances toujours meilleures"
     ],
     badge: "Nouveau",
-    images: [
-      "https://picsum.photos/id/110/800/600",
-      "https://picsum.photos/id/111/800/600",
-      "https://picsum.photos/id/112/800/600",
-      "https://picsum.photos/id/113/800/600",
-      "https://picsum.photos/id/114/800/600"
+    videos: [
+      // Replace with actual Cloudinary video URLs for AI service
+      "https://res.cloudinary.com/drjaj6ya2/video/upload/v1776715858/202604201313_1_cy6dgm.mp4",
     ]
   },
   {
@@ -86,11 +76,9 @@ export const services = [
       "Analyse des conversations pour améliorer vos produits",
       "Mises à jour continues sans effort de votre part"
     ],
-    images: [
-      "https://picsum.photos/id/115/800/600",
-      "https://picsum.photos/id/116/800/600",
-      "https://picsum.photos/id/117/800/600",
-      "https://picsum.photos/id/118/800/600"
+    videos: [
+      // Replace with actual Cloudinary video URLs for Chatbot service
+      "https://res.cloudinary.com/drjaj6ya2/video/upload/v1776715858/202604201313_1_cy6dgm.mp4",
     ]
   },
   {
@@ -107,12 +95,9 @@ export const services = [
       "Workflows visuels simples à modifier",
       "Alertes et rapports automatiques pour piloter votre activité"
     ],
-    images: [
-      "https://picsum.photos/id/119/800/600",
-      "https://picsum.photos/id/120/800/600",
-      "https://picsum.photos/id/121/800/600",
-      "https://picsum.photos/id/122/800/600",
-      "https://picsum.photos/id/123/800/600"
+    videos: [
+      // Replace with actual Cloudinary video URLs for Automation service
+      "https://res.cloudinary.com/drjaj6ya2/video/upload/v1776715858/202604201313_1_cy6dgm.mp4",
     ]
   },
   {
@@ -129,11 +114,9 @@ export const services = [
       "Rapports mensuels clairs et actionnables",
       "Stratégie de contenu alignée sur vos objectifs"
     ],
-    images: [
-      "https://picsum.photos/id/124/800/600",
-      "https://picsum.photos/id/125/800/600",
-      "https://picsum.photos/id/126/800/600",
-      "https://picsum.photos/id/127/800/600"
+    videos: [
+      // Replace with actual Cloudinary video URLs for SEO service
+      "https://res.cloudinary.com/drjaj6ya2/video/upload/v1776715858/202604201313_1_cy6dgm.mp4",
     ]
   },
   {
@@ -151,12 +134,9 @@ export const services = [
       "Optimisation des prix basée sur la demande réelle",
       "Rapports automatisés livrés directement dans votre boîte mail"
     ],
-    images: [
-      "https://picsum.photos/id/128/800/600",
-      "https://picsum.photos/id/129/800/600",
-      "https://picsum.photos/id/130/800/600",
-      "https://picsum.photos/id/131/800/600",
-      "https://picsum.photos/id/132/800/600"
+    videos: [
+      // Replace with actual Cloudinary video URLs for Data Analysis service
+      "https://res.cloudinary.com/drjaj6ya2/video/upload/v1776715858/202604201313_1_cy6dgm.mp4",
     ]
   },
   {
@@ -175,11 +155,9 @@ export const services = [
       "Amélioration continue des modèles au fil du temps"
     ],
     badge: "Expertise",
-    images: [
-      "https://picsum.photos/id/133/800/600",
-      "https://picsum.photos/id/134/800/600",
-      "https://picsum.photos/id/135/800/600",
-      "https://picsum.photos/id/136/800/600"
+    videos: [
+      // Replace with actual Cloudinary video URLs for Machine Learning service
+      "https://res.cloudinary.com/drjaj6ya2/video/upload/v1776715858/202604201313_1_cy6dgm.mp4",
     ]
   },
   {
@@ -197,12 +175,9 @@ export const services = [
       "Infographies claires pour vulgariser vos données",
       "Templates d’emails personnalisés pour vos campagnes"
     ],
-    images: [
-      "https://picsum.photos/id/137/800/600",
-      "https://picsum.photos/id/138/800/600",
-      "https://picsum.photos/id/139/800/600",
-      "https://picsum.photos/id/140/800/600",
-      "https://picsum.photos/id/141/800/600"
+    videos: [
+      // Replace with actual Cloudinary video URLs for Graphic Design service
+      "https://res.cloudinary.com/drjaj6ya2/video/upload/v1776715858/202604201313_1_cy6dgm.mp4",
     ]
   }
 ];

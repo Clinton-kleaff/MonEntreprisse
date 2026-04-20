@@ -1,8 +1,8 @@
-// src/components/ImageGalleryModal.jsx
+// src/components/MediaGalleryModal.jsx
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function ImageGalleryModal({ isOpen, onClose, images, title }) {
+export default function MediaGalleryModal({ isOpen, onClose, videos, title }) {
   if (!isOpen) return null;
 
   return (
@@ -20,11 +20,11 @@ export default function ImageGalleryModal({ isOpen, onClose, images, title }) {
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.9, y: 20 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-2xl"
+            className="bg-white rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-hidden shadow-2xl"
           >
             <div className="flex justify-between items-center p-6 border-b border-gray-100">
               <h3 className="text-xl font-bold text-gray-900">
-                {title || "Galerie d'images"}
+                {title || "Galerie vidéo"}
               </h3>
               <button
                 onClick={onClose}
@@ -35,9 +35,9 @@ export default function ImageGalleryModal({ isOpen, onClose, images, title }) {
             </div>
 
             <div className="p-6 overflow-y-auto custom-scrollbar" style={{ maxHeight: "calc(90vh - 80px)" }}>
-              {images && images.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                  {images.map((image, index) => (
+              {videos && videos.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {videos.map((video, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, scale: 0.95 }}
@@ -45,19 +45,23 @@ export default function ImageGalleryModal({ isOpen, onClose, images, title }) {
                       transition={{ delay: index * 0.05 }}
                       className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow"
                     >
-                      <img
-                        src={image}
-                        alt={`${title} - image ${index + 1}`}
-                        className="w-full h-64 object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
-                        loading="lazy"
+                      <video
+                        src={video}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        controls={false}
+                        className="w-full h-auto max-h-[400px] object-contain bg-black/5 rounded-xl"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
+                      {/* Optional overlay with play icon on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />
                     </motion.div>
                   ))}
                 </div>
               ) : (
                 <div className="text-center py-12 text-gray-500">
-                  <p>Aucune image disponible pour ce service</p>
+                  <p>Aucune vidéo disponible pour ce service</p>
                 </div>
               )}
             </div>

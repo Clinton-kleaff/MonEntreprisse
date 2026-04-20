@@ -12,11 +12,11 @@ import {
   Cpu,
   Palette,
   BarChart,
-  Image as ImageIcon,
+  Video as VideoIcon,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import ImageGalleryModal from "./ImageGalleryModal";
+import MediaGalleryModal from "./MediaGalleryModal";
 
 // Map icon strings to Lucide components
 const iconMap = {
@@ -29,6 +29,13 @@ const iconMap = {
   Cpu,
   Palette,
   BarChart,
+};
+
+// Helper to get Cloudinary video thumbnail (first frame)
+const getVideoThumbnail = (videoUrl) => {
+  if (!videoUrl || !videoUrl.includes('cloudinary.com')) return videoUrl;
+  // Cloudinary transformation to get JPG from first frame
+  return videoUrl.replace('/upload/', '/upload/so_0,f_jpg,w_120,h_120,c_fill/');
 };
 
 export default function ServiceCard({ service }) {
@@ -48,7 +55,7 @@ export default function ServiceCard({ service }) {
     setIsModalOpen(true);
   };
 
-  // Open image gallery, prevent card navigation
+  // Open media gallery, prevent card navigation
   const handleOpenGallery = (e) => {
     e.stopPropagation();
     setIsGalleryOpen(true);
@@ -57,8 +64,9 @@ export default function ServiceCard({ service }) {
   const closeModal = () => setIsModalOpen(false);
   const closeGallery = () => setIsGalleryOpen(false);
 
-  // Get first image for thumbnail
-  const firstImage = service.images && service.images[0];
+  // Get first video for thumbnail
+  const firstVideo = service.videos && service.videos[0];
+  const videoThumbnail = firstVideo ? getVideoThumbnail(firstVideo) : null;
 
   return (
     <>
@@ -89,14 +97,14 @@ export default function ServiceCard({ service }) {
               </div>
             </div>
 
-            {/* Small thumbnail on the right */}
-            {firstImage && (
+            {/* Video thumbnail preview */}
+            {videoThumbnail && (
               <div
                 onClick={handleOpenGallery}
                 className="w-12 h-12 rounded-lg overflow-hidden shadow-md cursor-pointer hover:ring-2 hover:ring-[#d81b60] transition-all flex-shrink-0"
               >
                 <img
-                  src={firstImage}
+                  src={videoThumbnail}
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />
@@ -118,13 +126,13 @@ export default function ServiceCard({ service }) {
               Détails <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            {/* Voir image button */}
-            {service.images && service.images.length > 0 && (
+            {/* Voir vidéos button */}
+            {service.videos && service.videos.length > 0 && (
               <button
                 onClick={handleOpenGallery}
                 className="inline-flex items-center gap-1 text-xs bg-gray-50 hover:bg-[#d81b60]/10 text-gray-600 hover:text-[#d81b60] px-3 py-1 rounded-full transition"
               >
-                <ImageIcon size={12} /> Voir images
+                <VideoIcon size={12} /> Voir vidéos
               </button>
             )}
             
@@ -204,7 +212,7 @@ export default function ServiceCard({ service }) {
                     }}
                     className="inline-flex items-center justify-center gap-2 border-2 border-[#d81b60] text-[#d81b60] px-3 py-2 rounded-full text-sm font-medium hover:bg-[#d81b60] hover:text-white transition sm:px-6 sm:w-auto"
                   >
-                    <ImageIcon size={16} /> Voir les images
+                    <VideoIcon size={16} /> Voir les vidéos
                   </button>
                   <Link
                     to={`/services/${service.id}`}
@@ -220,11 +228,11 @@ export default function ServiceCard({ service }) {
         )}
       </AnimatePresence>
 
-      {/* Image Gallery Modal */}
-      <ImageGalleryModal
+      {/* Media Gallery Modal */}
+      <MediaGalleryModal
         isOpen={isGalleryOpen}
         onClose={closeGallery}
-        images={service.images || []}
+        videos={service.videos || []}
         title={service.title}
       />
     </>
