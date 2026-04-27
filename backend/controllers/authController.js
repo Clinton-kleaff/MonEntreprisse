@@ -136,14 +136,14 @@ export const googleCallbackHandler = async (req, res) => {
       email: user.email,
     };
     // Use CLIENT_URL from .env, fallback to localhost for safety
-    const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+    const clientUrl = process.env.CLIENT_URL || 'https://techsphere-qmbx.onrender.com';
     const redirectUrl = `${clientUrl}/login?token=${token}&user=${encodeURIComponent(
       JSON.stringify(userData)
     )}`;
     res.redirect(redirectUrl);
   } catch (error) {
     console.error('Google callback error:', error);
-    const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+    const clientUrl = process.env.CLIENT_URL ||  'https://techsphere-qmbx.onrender.com';
     res.redirect(`${clientUrl}/login?error=google_auth_failed`);
   }
 };

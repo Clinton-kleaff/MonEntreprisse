@@ -64,8 +64,8 @@ export default function Login() {
   };
 
   const handleGoogleLogin = () => {
-    const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
-    window.location.href = `${backendUrl}/auth/google`;
+    // Use relative path – works in both dev and production
+    window.location.href = "/api/auth/google";
   };
 
   return (
