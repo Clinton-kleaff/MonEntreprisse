@@ -26,11 +26,9 @@ export const registerUser = async (req, res) => {
 
     const user = await User.create({ name, email, password });
     
-    // Send emails (non-blocking)
     sendWelcomeEmail(email, name).catch(console.error);
     sendNewUserAlert({ name, email }).catch(console.error);
 
-    // Return user object + token (matching frontend expectations)
     res.status(201).json({
       user: {
         _id: user._id,
@@ -90,7 +88,7 @@ export const forgotPassword = async (req, res) => {
 
     const resetToken = crypto.randomBytes(20).toString('hex');
     user.resetPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex');
-    user.resetPasswordExpire = Date.now() + 60 * 60 * 1000; // 1 hour
+    user.resetPasswordExpire = Date.now() + 60 * 60 * 1000;
     await user.save();
 
     await sendResetPasswordEmail(email, resetToken);
@@ -118,11 +116,34 @@ export const resetPassword = async (req, res) => {
     user.resetPasswordExpire = undefined;
     await user.save();
 
-    // Send password changed confirmation email
     sendPasswordChangedEmail(user.email, user.name).catch(console.error);
 
     res.json({ message: 'Mot de passe mis à jour avec succès' });
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Google OAuth callback handler
+// @route   GET /api/auth/google/callback (handled by Passport)
+export const googleCallbackHandler = async (req, res) => {
+  try {
+    const user = req.user;
+    const token = generateToken(user._id);
+    const userData = {
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+    };
+    // Use CLIENT_URL from .env, fallback to localhost for safety
+    const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+    const redirectUrl = `${clientUrl}/login?token=${token}&user=${encodeURIComponent(
+      JSON.stringify(userData)
+    )}`;
+    res.redirect(redirectUrl);
+  } catch (error) {
+    console.error('Google callback error:', error);
+    const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+    res.redirect(`${clientUrl}/login?error=google_auth_failed`);
   }
 };

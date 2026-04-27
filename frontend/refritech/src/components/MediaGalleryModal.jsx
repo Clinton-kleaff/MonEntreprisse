@@ -20,7 +20,9 @@ export default function MediaGalleryModal({ isOpen, onClose, videos, title }) {
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.9, y: 20 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-hidden shadow-2xl"
+            // ✅ Increased max-width for tablet (md) and laptop (lg) screens
+            // Height and mobile behavior remain untouched
+            className="bg-white rounded-2xl w-full max-w-5xl md:max-w-6xl lg:max-w-7xl max-h-[90vh] overflow-hidden shadow-2xl"
           >
             <div className="flex justify-between items-center p-6 border-b border-gray-100">
               <h3 className="text-xl font-bold text-gray-900">
@@ -34,26 +36,30 @@ export default function MediaGalleryModal({ isOpen, onClose, videos, title }) {
               </button>
             </div>
 
-            <div className="p-6 overflow-y-auto custom-scrollbar" style={{ maxHeight: "calc(90vh - 80px)" }}>
+            <div
+              className="p-6 overflow-y-auto custom-scrollbar"
+              style={{ maxHeight: "calc(90vh - 80px)" }}
+            >
               {videos && videos.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-1">
                   {videos.map((video, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.05 }}
-                      className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow"
+                      className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow flex justify-center items-center bg-black/5"
                     >
                       <video
                         src={video}
                         autoPlay
-                        loop                      
+                        loop
+                        muted
                         playsInline
                         controls={false}
-                        className="w-full h-auto max-h-[400px] object-contain bg-black/5 rounded-xl"
+                        // ⬇️ Height remains exactly as before – no changes here
+                        className="w-auto h-auto max-w-full max-h-[400px] object-contain rounded-xl"
                       />
-                      {/* Optional overlay with play icon on hover */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />
                     </motion.div>
                   ))}

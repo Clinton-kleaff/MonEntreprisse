@@ -5,6 +5,11 @@ import connectDB from './config/db.js';
 import errorHandler from './middleware/errorHandler.js';
 import path from 'path';
 
+import session from 'express-session';
+import passport from 'passport';
+import configurePassport from './config/passport.js';
+
+
 // Routes
 import authRoutes from './routes/authRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
@@ -16,6 +21,24 @@ const PORT = process.env.PORT || 5000;
 
 // Connect to MongoDB
 connectDB();
+
+// Session middleware (required for Passport)
+app.use(
+  session({
+    secret: process.env.JWT_SECRET || 'some_secret_key',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === 'production', // true in production (HTTPS)
+      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    },
+  })
+);
+
+// Initialize Passport
+app.use(passport.initialize());
+app.use(passport.session());
+configurePassport();
 
 app.set('trust proxy', 1);
 

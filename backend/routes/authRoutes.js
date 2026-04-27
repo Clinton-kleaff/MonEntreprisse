@@ -9,7 +9,24 @@ import {
 } from '../controllers/authController.js';
 import { protect } from '../middleware/auth.js';
 
+import passport from 'passport';
+import { googleCallbackHandler } from '../controllers/authController.js';
+
+
 const router = express.Router();
+
+
+// Google OAuth routes
+router.get(
+  '/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] })
+);
+
+router.get(
+  '/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login', session: false }),
+  googleCallbackHandler
+);
 
 router.post(
   '/register',

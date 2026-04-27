@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Check for existing session on mount
   useEffect(() => {
     const checkAuth = async () => {
       const token = localStorage.getItem("authToken");
@@ -23,10 +22,8 @@ export const AuthProvider = ({ children }) => {
         const result = await getCurrentUser();
         if (result.success) {
           setUser(result.user);
-          // Also ensure localStorage user data is in sync
           localStorage.setItem("user", JSON.stringify(result.user));
         } else {
-          // Token invalid or expired – clear storage
           localStorage.removeItem("authToken");
           localStorage.removeItem("user");
         }
@@ -77,7 +74,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    apiLogout(); // clears localStorage
+    apiLogout();
     setUser(null);
     toast.success("Déconnecté");
   };
@@ -86,7 +83,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const result = await apiForgotPassword(email);
       if (result.success) {
-        toast.success(result.message || `Un lien de réinitialisation a été envoyé à ${email}`);
+        toast.success(result.message || `Un lien a été envoyé à ${email}`);
         return true;
       } else {
         toast.error(result.message || "Erreur lors de l'envoi");
@@ -98,8 +95,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // New method to set user directly from Google OAuth
+  const setUserFromGoogle = (userData, token) => {
+    localStorage.setItem("authToken", token);
+    localStorage.setItem("user", JSON.stringify(userData));
+    setUser(userData);
+  };
+
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout, forgotPassword }}>
+    <AuthContext.Provider value={{ user, loading, login, register, logout, forgotPassword, setUserFromGoogle }}>
       {children}
     </AuthContext.Provider>
   );

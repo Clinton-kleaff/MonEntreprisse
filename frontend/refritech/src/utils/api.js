@@ -142,4 +142,5 @@ export const submitNewsletter = async (email) => {
   }
 };
 
+
 export default api;

@@ -17,7 +17,9 @@ export const services = [
     ],
     popular: true,
     videos: [
-      "https://res.cloudinary.com/drjaj6ya2/video/upload/v1776715858/202604201313_1_cy6dgm.mp4",
+      // "https://res.cloudinary.com/drjaj6ya2/video/upload/v1776715858/202604201313_1_cy6dgm.mp4"
+      // "https://res.cloudinary.com/drjaj6ya2/video/upload/v1777090078/Real_Landing_Page_iw3wwn.mp4",
+      "https://res.cloudinary.com/drjaj6ya2/video/upload/v1777276402/good.Landing_Page_ezac8q.mp4",
       // Add more video URLs for this service if needed
     ]
   },
@@ -96,9 +98,8 @@ export const services = [
       "Alertes et rapports automatiques pour piloter votre activité"
     ],
     videos: [
-      // Replace with actual Cloudinary video URLs for Automation service
-      "https://res.cloudinary.com/drjaj6ya2/video/upload/v1776715858/202604201313_1_cy6dgm.mp4",
-    ]
+      "https://res.cloudinary.com/drjaj6ya2/video/upload/v1777274619/Good_Automatisation_Des_Processus_3_jnzrmt.mp4",
+    ]  
   },
   {
     id: "seo",
