@@ -20,9 +20,8 @@ export default function MediaGalleryModal({ isOpen, onClose, videos, title }) {
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.9, y: 20 }}
             onClick={(e) => e.stopPropagation()}
-            // ✅ Increased max-width for tablet (md) and laptop (lg) screens
-            // Height and mobile behavior remain untouched
-            className="bg-white rounded-2xl w-full max-w-5xl md:max-w-6xl lg:max-w-7xl max-h-[90vh] overflow-hidden shadow-2xl"
+            // ✅ Parent card now matches content width on tablet & laptop
+            className="bg-white rounded-2xl w-full sm:w-fit max-w-full max-h-[90vh] overflow-hidden shadow-2xl"
           >
             <div className="flex justify-between items-center p-6 border-b border-gray-100">
               <h3 className="text-xl font-bold text-gray-900">
@@ -57,7 +56,6 @@ export default function MediaGalleryModal({ isOpen, onClose, videos, title }) {
                         muted
                         playsInline
                         controls={false}
-                        // ⬇️ Height remains exactly as before – no changes here
                         className="w-auto h-auto max-w-full max-h-[400px] object-contain rounded-xl"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />

@@ -16,6 +16,8 @@ import MentionsLegales from "./pages/MentionsLegales";
 import Confidentialite from "./pages/Confidentialite";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import Sectors from "./pages/Sectors";
+import SectorDetail from "./pages/SectorDetail";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
               <Route path="/mentions-legales" element={<MentionsLegales />} />
               <Route path="/confidentialite" element={<Confidentialite />} />
               <Route path="*" element={<NotFound />} />
+              <Route path="/sectors" element={<Sectors />} />
+              <Route path="/sectors/:slug" element={<SectorDetail />} />
             </Routes>
           </main>
           <Footer />

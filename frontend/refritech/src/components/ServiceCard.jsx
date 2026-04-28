@@ -13,12 +13,20 @@ import {
   Palette,
   BarChart,
   Video as VideoIcon,
+  // New icons for added services
+  Send,
+  Camera,
+  Mail,
+  CalendarDays,
+  Film,
+  CreditCard,
+  Package,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import MediaGalleryModal from "./MediaGalleryModal";
 
-// Map icon strings to Lucide components
+// Map icon strings to Lucide components – extended with all new services
 const iconMap = {
   Layout,
   Globe,
@@ -29,13 +37,20 @@ const iconMap = {
   Cpu,
   Palette,
   BarChart,
+  Send,
+  Camera,
+  Mail,
+  Calendar: CalendarDays,
+  Film,
+  CreditCard,
+  Package,
 };
 
 // Helper to get Cloudinary video thumbnail (first frame)
 const getVideoThumbnail = (videoUrl) => {
-  if (!videoUrl || !videoUrl.includes('cloudinary.com')) return videoUrl;
+  if (!videoUrl || !videoUrl.includes("cloudinary.com")) return videoUrl;
   // Cloudinary transformation to get JPG from first frame
-  return videoUrl.replace('/upload/', '/upload/so_0,f_jpg,w_120,h_120,c_fill/');
+  return videoUrl.replace("/upload/", "/upload/so_0,f_jpg,w_120,h_120,c_fill/");
 };
 
 export default function ServiceCard({ service }) {
@@ -117,7 +132,7 @@ export default function ServiceCard({ service }) {
           <p className="text-[#d81b60] font-bold text-lg mb-4">{service.price}</p>
 
           <div className="flex items-center justify-between gap-2 mt-2 flex-wrap">
-            {/* Detail link – kept for accessibility, but click is handled by card */}
+            {/* Detail link */}
             <Link
               to={`/services/${service.id}`}
               onClick={(e) => e.stopPropagation()}
@@ -135,7 +150,7 @@ export default function ServiceCard({ service }) {
                 <VideoIcon size={12} /> Voir vidéos
               </button>
             )}
-            
+
             <button
               onClick={handleQuickView}
               className="text-xs bg-gray-50 hover:bg-[#d81b60]/10 text-gray-600 hover:text-[#d81b60] px-3 py-1 rounded-full transition"
@@ -202,7 +217,7 @@ export default function ServiceCard({ service }) {
                 )}
               </div>
 
-              {/* Footer buttons - fixed, one line on mobile */}
+              {/* Footer buttons */}
               <div className="flex-shrink-0 p-6 pt-2">
                 <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-nowrap sm:gap-3 sm:justify-end">
                   <button

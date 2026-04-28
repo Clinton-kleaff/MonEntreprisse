@@ -1,12 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, LogIn, UserPlus, Home, Briefcase, Info, Mail, Rocket, User, LogOut, ChevronDown } from "lucide-react";
+import { Menu, X, LogIn, UserPlus, Home, Briefcase, Info, Mail, Rocket, User, LogOut, ChevronDown, Target } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../context/AuthContext";
 
 const navLinks = [
   { to: "/", label: "Accueil", icon: Home },
   { to: "/services", label: "Services", icon: Briefcase },
+  { to: "/sectors", label: "Secteurs", icon: Target },  
   { to: "/about", label: "À propos", icon: Info },
   { to: "/contact", label: "Contact", icon: Mail },
 ];
@@ -59,7 +60,7 @@ export default function Navbar() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`text-gray-700 hover:text-[#d81b60] transition ${
+                  className={`whitespace-nowrap text-gray-700 hover:text-[#d81b60] transition ${
                     location.pathname === link.to ? "text-[#d81b60] font-semibold" : ""
                   }`}
                 >

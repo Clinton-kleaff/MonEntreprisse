@@ -2,16 +2,64 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { services } from "../data/services";
 import { Helmet } from "react-helmet-async";
-import { CheckCircle, ArrowLeft, ShoppingCart, Calendar, Clock, Lock, Users, Zap, Video as VideoIcon } from "lucide-react";
+import {
+  CheckCircle,
+  ArrowLeft,
+  ShoppingCart,
+  Calendar,
+  Clock,
+  Lock,
+  Users,
+  Zap,
+  Video as VideoIcon,
+  Play,
+  // Existing icons for classic services
+  Layout,
+  Globe,
+  Brain,
+  MessageSquare,
+  TrendingUp,
+  BarChart,
+  Cpu,
+  Palette,
+  // New icons for added services
+  Send,
+  Camera,
+  Mail,
+  CalendarDays,
+  Film,
+  CreditCard,
+  Package,
+} from "lucide-react";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import MediaGalleryModal from "../components/MediaGalleryModal";
 
+// Icon mapping from string to component
+const iconMap = {
+  Layout,
+  Globe,
+  Brain,
+  MessageSquare,
+  Zap,
+  TrendingUp,
+  BarChart,
+  Cpu,
+  Palette,
+  Send,
+  Camera,
+  Mail,
+  Calendar: CalendarDays,
+  Film,
+  CreditCard,
+  Package,
+};
+
 // Helper to get Cloudinary video thumbnail (first frame)
 const getVideoThumbnail = (videoUrl) => {
-  if (!videoUrl || !videoUrl.includes('cloudinary.com')) return videoUrl;
-  return videoUrl.replace('/upload/', '/upload/so_0,f_jpg,w_120,h_120,c_fill/');
+  if (!videoUrl || !videoUrl.includes("cloudinary.com")) return videoUrl;
+  return videoUrl.replace("/upload/", "/upload/so_0,f_jpg,w_600,c_fill/");
 };
 
 export default function ServiceDetail() {
@@ -24,7 +72,10 @@ export default function ServiceDetail() {
     return (
       <div className="text-center py-20">
         <h2 className="text-2xl font-bold text-gray-900">Service non trouvé</h2>
-        <button onClick={() => navigate("/services")} className="text-[#d81b60] mt-4 inline-block">
+        <button
+          onClick={() => navigate("/services")}
+          className="text-[#d81b60] mt-4 inline-block"
+        >
           ← Retour aux services
         </button>
       </div>
@@ -32,7 +83,9 @@ export default function ServiceDetail() {
   }
 
   const handleOrder = () => {
-    navigate("/order", { state: { service: { id: service.id, title: service.title } } });
+    navigate("/order", {
+      state: { service: { id: service.id, title: service.title } },
+    });
     toast.success(`Service "${service.title}" présélectionné !`, {
       duration: 3000,
       icon: "🎯",
@@ -41,6 +94,7 @@ export default function ServiceDetail() {
 
   const firstVideo = service.videos && service.videos[0];
   const videoThumbnail = firstVideo ? getVideoThumbnail(firstVideo) : null;
+  const ServiceIcon = iconMap[service.icon] || Globe;
 
   return (
     <>
@@ -50,7 +104,7 @@ export default function ServiceDetail() {
       </Helmet>
 
       <div className="bg-gray-50 min-h-screen py-12 md:py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back button */}
           <Link
             to="/services"
@@ -59,87 +113,150 @@ export default function ServiceDetail() {
             <ArrowLeft size={18} className="mr-1" /> Tous les services
           </Link>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white rounded-2xl shadow-xl overflow-hidden"
-          >
-            <div className="p-6 md:p-10">
-              <div className="flex flex-wrap justify-between items-start gap-4 mb-6">
-                <div className="flex-1">
-                  <div className="flex items-center gap-4 flex-wrap mb-2">
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900">{service.title}</h1>
-                    {/* Video thumbnail preview */}
-                    {videoThumbnail && (
-                      <div
-                        onClick={() => setIsGalleryOpen(true)}
-                        className="w-16 h-16 rounded-lg overflow-hidden shadow-md cursor-pointer hover:ring-2 hover:ring-[#d81b60] transition-all flex-shrink-0"
-                      >
-                        <img
-                          src={videoThumbnail}
-                          alt={service.title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-500 max-sm:whitespace-nowrap">
-                    <Clock size={14} /> Livraison rapide
-                    <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-                    <Users size={14} /> +1200 projets réalisés
-                  </div>
+          {/* Hero-like section (mirroring Home Hero) */}
+          <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-16">
+            {/* ===== LEFT COLUMN : Text & CTAs ===== */}
+            <div className="flex-1 w-full">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 rounded-xl bg-[#d81b60]/10">
+                  <ServiceIcon className="w-7 h-7 text-[#d81b60]" />
                 </div>
-                <p className="text-2xl md:text-3xl font-bold text-[#d81b60]">{service.price}</p>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+                  {service.title}
+                </h1>
               </div>
 
-              <p className="text-gray-700 text-lg leading-relaxed mb-8">{service.fullDescription}</p>
-
-              {/* Features list */}
-              <div className="bg-gray-50 rounded-xl p-6 mb-8">
-                <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <Zap size={20} className="text-[#d81b60]" /> Ce qui est inclus
-                </h2>
-                <ul className="grid sm:grid-cols-2 gap-3">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-gray-700">
-                      <CheckCircle size={18} className="text-green-500 flex-shrink-0" /> {feature}
-                    </li>
-                  ))}
-                </ul>
+              <div className="flex items-center gap-2 text-sm text-gray-500 mb-6">
+                <Clock size={14} /> Livraison rapide
+                <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+                <Users size={14} /> +1200 projets réalisés
               </div>
 
-              {/* CTA buttons */}
-              <div className="flex flex-wrap gap-4">
+              <p className="text-lg text-gray-700 leading-relaxed mb-8 max-w-xl">
+                {service.fullDescription}
+              </p>
+
+              {/* Price display */}
+              <p className="text-3xl font-bold text-[#d81b60] mb-6">
+                {service.price}
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap gap-4 mb-6">
                 <button
                   onClick={handleOrder}
-                  className="inline-flex items-center gap-2 bg-[#d81b60] text-white px-8 py-3 rounded-xl font-semibold hover:bg-[#c2185b] transition shadow-md"
+                  className="inline-flex items-center gap-2 bg-[#d81b60] text-white px-6 sm:px-8 py-3 rounded-xl font-semibold hover:bg-[#c2185b] transition shadow-md"
                 >
                   <ShoppingCart size={18} /> Commander ce service
                 </button>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-xl font-semibold hover:border-[#d81b60] hover:text-[#d81b60] transition"
+                  className="inline-flex items-center gap-2 border-2 border-gray-300 text-gray-700 px-6 sm:px-8 py-3 rounded-xl font-semibold hover:border-[#d81b60] hover:text-[#d81b60] transition"
                 >
                   <Calendar size={18} /> Demander un rendez-vous
                 </Link>
-                {/* Voir vidéos button */}
                 {service.videos && service.videos.length > 0 && (
                   <button
                     onClick={() => setIsGalleryOpen(true)}
-                    className="inline-flex items-center gap-2 border-2 border-[#d81b60] text-[#d81b60] px-8 py-3 rounded-xl font-semibold hover:bg-[#d81b60] hover:text-white transition"
+                    className="inline-flex items-center gap-2 border-2 border-[#d81b60] text-[#d81b60] px-6 sm:px-8 py-3 rounded-xl font-semibold hover:bg-[#d81b60] hover:text-white transition"
                   >
                     <VideoIcon size={18} /> Voir les vidéos
                   </button>
                 )}
               </div>
 
-              {/* Additional trust badge */}
-              <div className="mt-8 pt-6 border-t border-gray-100 text-center text-sm text-gray-400">
-                <Lock size={16} className="inline mr-1 mb-1 text-[#d81b60]" /> Paiement sécurisé • Support 24/7 • Sans engagement
+              {/* Trust badges (like Home) */}
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-gray-400">
+                <span className="flex items-center gap-1">
+                  <Lock size={14} className="text-[#d81b60]" /> Paiement sécurisé
+                </span>
+                <span className="w-1 h-1 rounded-full bg-gray-300 hidden sm:inline-block" />
+                <span className="flex items-center gap-1">
+                  ✓ Support 24/7
+                </span>
+                <span className="w-1 h-1 rounded-full bg-gray-300 hidden sm:inline-block" />
+                <span className="flex items-center gap-1">
+                  ✓ Sans engagement
+                </span>
               </div>
             </div>
+
+            {/* ===== RIGHT COLUMN : Visual Card (more beautiful border) ===== */}
+            {videoThumbnail && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+                className="flex-1 relative w-full lg:mt-0 mt-10"
+              >
+                {/* Glow effect behind */}
+                <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#d81b60]/20 rounded-full blur-3xl -z-10"></div>
+                <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-purple-200/30 rounded-full blur-3xl -z-10"></div>
+
+                {/* Visual Card with elegant border (not Home's border) */}
+                <div
+                  onClick={() => setIsGalleryOpen(true)}
+                  className="group relative bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 
+                             shadow-xl shadow-[#d81b60]/10
+                             border-2 border-transparent bg-clip-padding
+                             before:absolute before:inset-0 before:-z-10 before:rounded-2xl before:p-[2px] before:bg-gradient-to-br before:from-[#d81b60]/30 before:to-purple-400/30
+                             hover:shadow-2xl hover:shadow-[#d81b60]/20 hover:scale-[1.02]"
+                  style={{
+                    // Simulates a gradient border on the card itself
+                    borderRadius: '1rem',
+                  }}
+                >
+                  {/* Fake browser top bar */}
+                  <div className="flex items-center gap-2 p-4 pb-2 bg-gray-50/80">
+                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                  </div>
+
+                  {/* Thumbnail */}
+                  <img
+                    src={videoThumbnail}
+                    alt={service.title}
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                  />
+                  
+                  {/* Play button overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                      <Play size={28} className="text-[#d81b60] ml-1" />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </div>
+
+          {/* Features list (grid, similar to services section on Home) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-16 bg-white rounded-2xl shadow-lg p-6 md:p-10"
+          >
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <Zap size={22} className="text-[#d81b60]" /> Ce qui est inclus
+            </h2>
+            <ul className="grid sm:grid-cols-2 gap-4">
+              {service.features.map((feature, idx) => (
+                <li key={idx} className="flex items-center gap-3 text-gray-700 text-lg">
+                  <CheckCircle size={20} className="text-green-500 flex-shrink-0" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
           </motion.div>
+
+          {/* Extra trust line (subtle) */}
+          <div className="mt-8 text-center text-sm text-gray-400">
+            <Lock size={14} className="inline mr-1 text-[#d81b60]" /> Paiement sécurisé •
+            Support 24/7 • Sans engagement
+          </div>
         </div>
       </div>
 
