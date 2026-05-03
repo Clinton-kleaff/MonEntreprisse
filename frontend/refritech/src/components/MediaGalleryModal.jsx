@@ -20,7 +20,6 @@ export default function MediaGalleryModal({ isOpen, onClose, videos, title }) {
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.9, y: 20 }}
             onClick={(e) => e.stopPropagation()}
-            // ✅ Parent card now matches content width on tablet & laptop
             className="bg-white rounded-2xl w-full sm:w-fit max-w-full max-h-[90vh] overflow-hidden shadow-2xl"
           >
             <div className="flex justify-between items-center p-6 border-b border-gray-100">
@@ -48,6 +47,11 @@ export default function MediaGalleryModal({ isOpen, onClose, videos, title }) {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.05 }}
                       className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow flex justify-center items-center bg-black/5"
+                      onContextMenu={(e) => e.preventDefault()}
+                      style={{
+                        userSelect: "none",
+                        WebkitTouchCallout: "none",
+                      }}
                     >
                       <video
                         src={video}
@@ -56,9 +60,21 @@ export default function MediaGalleryModal({ isOpen, onClose, videos, title }) {
                         muted
                         playsInline
                         controls={false}
+                        disablePictureInPicture
+                        controlsList="nodownload nofullscreen"
                         className="w-auto h-auto max-w-full max-h-[400px] object-contain rounded-xl"
+                        onContextMenu={(e) => e.preventDefault()}
                       />
+
+                      {/* Decorative gradient overlay (kept for hover effect) */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />
+
+                      {/* Invisible protective overlay – catches right‑click / long‑press above the video */}
+                      <div
+                        className="absolute inset-0 rounded-xl"
+                        style={{ background: "transparent" }}
+                        onContextMenu={(e) => e.preventDefault()}
+                      />
                     </motion.div>
                   ))}
                 </div>

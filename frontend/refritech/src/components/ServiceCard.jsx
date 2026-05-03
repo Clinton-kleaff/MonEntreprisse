@@ -1,5 +1,6 @@
 // src/components/ServiceCard.jsx
 import { Link, useNavigate } from "react-router-dom";
+import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 import {
   ArrowRight,
   Layout,
@@ -39,6 +40,8 @@ const iconMap = {
   BarChart,
   Send,
   Camera,
+  FaWhatsapp,
+  FaInstagram, 
   Mail,
   Calendar: CalendarDays,
   Film,

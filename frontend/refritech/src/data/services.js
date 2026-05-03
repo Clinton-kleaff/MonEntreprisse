@@ -26,7 +26,7 @@ export const services = [
     id: "web",
     title: "Application Web",
     description:
-      "Solution complète et évolutive: Site web entièrement fonctionnel, Application PlayStore",
+      "Solution complète et évolutive: Site web entièrement fonctionnel. Application PlayStore",
     fullDescription:
       "Nous développons des applications web entièrement personnalisées, robustes et sécurisées, adaptées à la croissance de votre activité. Vous gagnez en efficacité opérationnelle et offrez une expérience fluide à vos utilisateurs, ce qui se traduit par plus de fidélisation et de revenus.",
     price: "$500+",
@@ -199,7 +199,8 @@ export const services = [
     fullDescription:
       "Déployez un assistant WhatsApp intelligent capable de répondre instantanément à vos clients, de qualifier des prospects et d’envoyer des notifications (confirmations de commande, rappels de rendez-vous, promotions). Intégration native à votre CRM et à vos workflows.",
     price: "Sur devis",
-    icon: "Send",
+    // icon: "Send",
+    icon: "FaWhatsapp",
     features: [
       "Réponses automatiques 24/7",
       "Notifications transactionnelles (commandes, RDV)",
@@ -219,7 +220,8 @@ export const services = [
     fullDescription:
       "Votre compte professionnel Instagram devient un canal de vente et de support grâce à des réponses instantanées programmées. Le bot accueille les nouveaux abonnés, répond aux questions fréquentes et redirige les demandes complexes vers votre équipe.",
     price: "Sur devis",
-    icon: "Camera",
+    // icon: "Camera",
+    icon: "FaInstagram",
     features: [
       "Réponses automatiques aux messages directs",
       "Modération intelligente des commentaires",

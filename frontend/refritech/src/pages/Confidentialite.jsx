@@ -29,9 +29,9 @@ export default function Confidentialite() {
             <ArrowLeft size={16} /> Retour à l'accueil
           </Link>
 
-          {/* Header */}
-          <div className="mb-10 text-center md:text-left">
-            <div className="flex justify-center md:justify-start mb-4">
+          {/* Header – toujours centré */}
+          <div className="mb-10 text-center">
+            <div className="flex justify-center mb-4">
               <div className="w-12 h-12 rounded-xl bg-[#d81b60]/10 flex items-center justify-center">
                 <Shield className="w-6 h-6 text-[#d81b60]" />
               </div>
@@ -39,7 +39,7 @@ export default function Confidentialite() {
             <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
               Politique de <span className="text-[#d81b60]">confidentialité</span>
             </h1>
-            <p className="text-gray-500 max-w-2xl">
+            <p className="text-gray-500 max-w-2xl mx-auto">
               Nous accordons une importance capitale à la protection de vos données personnelles.
             </p>
           </div>

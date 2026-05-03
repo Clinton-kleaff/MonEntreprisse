@@ -1,12 +1,40 @@
+// src/pages/About.jsx
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Target, Lightbulb, TrendingUp, Users, Award, Clock } from "lucide-react";
+import {
+  Target,
+  Lightbulb,
+  TrendingUp,
+  Users,
+  Award,
+  Clock,
+  Shield,
+  FileText,
+} from "lucide-react";
 
 export default function About() {
   const values = [
-    { icon: Lightbulb, title: "Innovation constante", desc: "Nous utilisons les dernières technologies pour vous offrir des solutions avant-gardistes." },
-    { icon: TrendingUp, title: "Résultats mesurables", desc: "Chaque projet vise un ROI clair et des indicateurs de performance suivis." },
-    { icon: Users, title: "Transparence & confiance", desc: "Une communication claire et un partenariat gagnant-gagnant." },
+    {
+      icon: Lightbulb,
+      title: "Innovation constante",
+      desc: "Nous utilisons les dernières technologies pour vous offrir des solutions avant-gardistes.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Résultats mesurables",
+      desc: "Chaque projet vise un ROI clair et des indicateurs de performance suivis.",
+    },
+    {
+      icon: Users,
+      title: "Transparence & confiance",
+      desc: "Une communication claire et un partenariat gagnant-gagnant.",
+    },
+    {
+      icon: Shield,
+      title: "Sécurité & fiabilité",
+      desc: "Nous mettons en place des solutions robustes et sécurisées pour protéger vos données.",
+    },
   ];
 
   const stats = [
@@ -19,7 +47,10 @@ export default function About() {
     <>
       <Helmet>
         <title>À propos | Solutions Digitales Modernes</title>
-        <meta name="description" content="Découvrez notre histoire, notre mission et nos valeurs : accompagner les entreprises dans leur transformation digitale avec innovation et transparence." />
+        <meta
+          name="description"
+          content="Découvrez notre histoire, notre mission et nos valeurs : accompagner les entreprises dans leur transformation digitale avec innovation et transparence."
+        />
       </Helmet>
 
       <div className="bg-white">
@@ -35,8 +66,9 @@ export default function About() {
                 À propos de <span className="text-[#d81b60]">WaGradeTech</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Nous aidons les entreprises à se transformer grâce aux technologies modernes.
-                Fondée en 2025, notre mission est de démocratiser l'accès aux solutions digitales de qualité.
+                Nous aidons les entreprises à se transformer grâce aux
+                technologies modernes. Fondée en 2025, notre mission est de
+                démocratiser l'accès aux solutions digitales de qualité.
               </p>
             </motion.div>
           </div>
@@ -54,15 +86,18 @@ export default function About() {
               >
                 <div className="inline-flex items-center gap-2 bg-[#d81b60]/10 rounded-full px-4 py-1.5 mb-4">
                   <Target size={16} className="text-[#d81b60]" />
-                  <span className="text-sm font-medium text-[#d81b60]">Notre mission</span>
+                  <span className="text-sm font-medium text-[#d81b60]">
+                    Notre mission
+                  </span>
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
                   Accélérer votre croissance digitale
                 </h2>
                 <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                  Chez WaGradeTech, nous croyons que chaque entreprise, quelle que soit sa taille,
-                  mérite des solutions digitales performantes, accessibles et évolutives.
-                  Notre équipe d'experts combine créativité, technologie et stratégie pour
+                  Chez WaGradeTech, nous croyons que chaque entreprise, quelle
+                  que soit sa taille, mérite des solutions digitales
+                  performantes, accessibles et évolutives. Notre équipe
+                  d'experts combine créativité, technologie et stratégie pour
                   transformer vos idées en succès concrets.
                 </p>
                 <div className="flex gap-4">
@@ -72,7 +107,9 @@ export default function About() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Users size={18} className="text-[#d81b60]" />
-                    <span className="text-sm text-gray-600">Équipe dédiée</span>
+                    <span className="text-sm text-gray-600">
+                      Équipe dédiée
+                    </span>
                   </div>
                 </div>
               </motion.div>
@@ -88,7 +125,9 @@ export default function About() {
                   alt="Notre équipe"
                   className="rounded-xl shadow-md w-full object-cover mb-4"
                 />
-                <p className="text-gray-500 text-sm">Une équipe passionnée à votre écoute</p>
+                <p className="text-gray-500 text-sm">
+                  Une équipe passionnée à votre écoute
+                </p>
               </motion.div>
             </div>
           </div>
@@ -98,12 +137,14 @@ export default function About() {
         <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-3">Nos valeurs</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">
+                Nos valeurs
+              </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Ce qui nous guide au quotidien pour vous offrir le meilleur.
               </p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 gap-8">
               {values.map((value, idx) => (
                 <motion.div
                   key={idx}
@@ -116,7 +157,9 @@ export default function About() {
                   <div className="w-12 h-12 bg-[#d81b60]/10 rounded-xl flex items-center justify-center mb-4">
                     <value.icon className="w-6 h-6 text-[#d81b60]" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{value.title}</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {value.title}
+                  </h3>
                   <p className="text-gray-600">{value.desc}</p>
                 </motion.div>
               ))}
@@ -127,7 +170,7 @@ export default function About() {
         {/* Stats section */}
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="grid grid-cols-3 gap-8 text-center">
               {stats.map((stat, idx) => (
                 <motion.div
                   key={idx}
@@ -138,7 +181,9 @@ export default function About() {
                   className="p-6"
                 >
                   <stat.icon className="w-10 h-10 text-[#d81b60] mx-auto mb-3" />
-                  <div className="text-4xl font-bold text-gray-900">{stat.value}</div>
+                  <div className="text-4xl font-bold text-gray-900">
+                    {stat.value}
+                  </div>
                   <div className="text-gray-500 mt-1">{stat.label}</div>
                 </motion.div>
               ))}
@@ -147,24 +192,77 @@ export default function About() {
         </section>
 
         {/* CTA */}
-        <section className="py-16 bg-gradient-to-r from-[#d81b60]/5 to-[#d81b60]/10">
-          <div className="max-w-4xl mx-auto text-center px-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-[#d81b60]/5 to-[#d81b60]/10 rounded-2xl p-8 text-center border border-[#d81b60]/20"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
               Prêt à faire passer votre entreprise au niveau supérieur ?
-            </h2>
-            <p className="text-gray-600 mb-6">Discutons de votre projet et trouvons la solution idéale.</p>
-            <a
-              href="/contact"
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Discutons de votre projet et trouvons la solution idéale.
+            </p>
+            <Link
+              to="/contact"
               className="inline-flex items-center bg-[#d81b60] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#c2185b] transition shadow-lg shadow-[#d81b60]/30"
             >
               Contactez-nous
-            </a>
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Legal Information Section */}
+        <section className="py-12 bg-white border-t border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Informations légales
+            </h2>
+            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+              Votre confiance est notre priorité. Consultez nos documents
+              légaux pour comprendre comment nous protégeons vos données et
+              respectons les obligations réglementaires.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <Link
+                to="/mentions-legales"
+                className="group flex items-center gap-3 bg-gray-50 hover:bg-[#d81b60]/5 border border-gray-200 hover:border-[#d81b60] rounded-2xl p-5 transition-all"
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#d81b60]/10 flex items-center justify-center group-hover:bg-[#d81b60]/20 transition">
+                  <FileText className="w-5 h-5 text-[#d81b60]" />
+                </div>
+                <div className="text-left">
+                  <span className="text-lg font-semibold text-gray-800 group-hover:text-[#d81b60] transition">
+                    Mentions légales
+                  </span>
+                  <p className="text-sm text-gray-500">
+                    Éditeur, hébergement, propriété intellectuelle
+                  </p>
+                </div>
+              </Link>
+
+              <Link
+                to="/confidentialite"
+                className="group flex items-center gap-3 bg-gray-50 hover:bg-[#d81b60]/5 border border-gray-200 hover:border-[#d81b60] rounded-2xl p-5 transition-all"
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#d81b60]/10 flex items-center justify-center group-hover:bg-[#d81b60]/20 transition">
+                  <Shield className="w-5 h-5 text-[#d81b60]" />
+                </div>
+                <div className="text-left">
+                  <span className="text-lg font-semibold text-gray-800 group-hover:text-[#d81b60] transition">
+                    Politique de confidentialité
+                  </span>
+                  <p className="text-sm text-gray-500">
+                    Données personnelles, RGPD, cookies
+                  </p>
+                </div>
+              </Link>
+            </div>
           </div>
         </section>
       </div>
     </>
   );
 }
-
-
-// Be silent
