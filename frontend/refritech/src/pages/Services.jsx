@@ -185,7 +185,7 @@ export default function Services() {
 
       {/* Hero section */}
       <section className="bg-gradient-to-br from-gray-50 to-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2 md:pt-6 md:pb-2">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -223,7 +223,7 @@ export default function Services() {
       </section>
 
       {/* Services grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 md:pt-6 md:pb-20">
         {filteredServices.length === 0 ? (
           <div className="text-center py-12">
             <Layers className="w-12 h-12 text-gray-300 mx-auto mb-4" />

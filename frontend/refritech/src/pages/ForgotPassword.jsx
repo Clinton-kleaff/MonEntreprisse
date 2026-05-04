@@ -31,7 +31,7 @@ export default function ForgotPassword() {
       <Helmet>
         <title>Mot de passe oublié | WaGradeTech</title>
       </Helmet>
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center pt-4 pb-12 px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

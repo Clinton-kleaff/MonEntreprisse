@@ -104,7 +104,7 @@ export default function ServiceDetail() {
         <meta name="description" content={service.fullDescription} />
       </Helmet>
 
-      <div className="bg-gray-50 min-h-screen py-12 md:py-20">
+      <div className="bg-gray-50 min-h-screen pt-4 pb-12 md:pt-6 md:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             to="/services"

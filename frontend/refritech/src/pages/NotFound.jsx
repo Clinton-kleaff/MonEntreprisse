@@ -11,7 +11,7 @@ export default function NotFound() {
         <meta name="description" content="La page que vous cherchez n'existe pas. Retournez à l'accueil." />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center px-4 py-20">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center px-4 pt-4 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

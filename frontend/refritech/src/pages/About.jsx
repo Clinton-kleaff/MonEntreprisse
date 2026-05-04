@@ -55,7 +55,7 @@ export default function About() {
 
       <div className="bg-white">
         {/* Hero section */}
-        <section className="bg-gradient-to-br from-gray-50 to-white py-16 md:py-24">
+        <section className="bg-gradient-to-br from-gray-50 to-white pt-4 pb-6 md:pt-6 md:pb-8">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -75,22 +75,26 @@ export default function About() {
         </section>
 
         {/* Mission section */}
-        <section className="py-16 bg-white">
+        <section className="pt-4 md:pt-6 pb-16 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-12 items-start">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="inline-flex items-center gap-2 bg-[#d81b60]/10 rounded-full px-4 py-1.5 mb-4">
-                  <Target size={16} className="text-[#d81b60]" />
-                  <span className="text-sm font-medium text-[#d81b60]">
-                    Notre mission
-                  </span>
+                {/* Centered badge */}
+                <div className="flex justify-center mb-4">
+                  <div className="inline-flex items-center gap-2 bg-[#d81b60]/10 rounded-full px-4 py-1.5">
+                    <Target size={16} className="text-[#d81b60]" />
+                    <span className="text-sm font-medium text-[#d81b60]">
+                      Notre mission
+                    </span>
+                  </div>
                 </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+
+                <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center md:text-left">
                   Accélérer votre croissance digitale
                 </h2>
                 <p className="text-gray-600 text-lg leading-relaxed mb-6">
@@ -100,7 +104,7 @@ export default function About() {
                   d'experts combine créativité, technologie et stratégie pour
                   transformer vos idées en succès concrets.
                 </p>
-                <div className="flex gap-4">
+                <div className="flex justify-center md:justify-start gap-4">
                   <div className="flex items-center gap-2">
                     <Clock size={18} className="text-[#d81b60]" />
                     <span className="text-sm text-gray-600">Support 7j/7</span>
@@ -118,12 +122,12 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="bg-gradient-to-br from-[#d81b60]/5 to-[#d81b60]/10 rounded-2xl p-8 text-center"
+                className="border-b border-gray-200 pb-4 text-center"
               >
                 <img
                   src="https://live.staticflickr.com/65535/55187097631_39b4920030_c.jpg"
                   alt="Notre équipe"
-                  className="rounded-xl shadow-md w-full object-cover mb-4"
+                  className="w-full object-cover mb-4"
                 />
                 <p className="text-gray-500 text-sm">
                   Une équipe passionnée à votre écoute

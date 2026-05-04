@@ -52,7 +52,7 @@ export default function Contact() {
         <meta name="description" content="Contactez notre équipe pour tout projet, devis ou support. Disponibles 7j/7." />
       </Helmet>
 
-      <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen py-12 md:py-20">
+      <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen pt-4 pb-12 md:pt-6 md:pb-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
