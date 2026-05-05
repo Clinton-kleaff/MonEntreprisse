@@ -23,7 +23,9 @@ export const sectors = [
     fullDescription:
       "Un site web professionnel couplé à l’IA et à l’automatisation transforme votre e-commerce en une machine à vendre. Vos clients bénéficient de recommandations personnalisées (IA), d’un service client instantané (chatbot, WhatsApp, Instagram) et d’une expérience fluide. La gestion des stocks, les relances emails/SMS, les paiements (Moncash, Natcash, Stripe, cartes) et la synchronisation CRM s’exécutent automatiquement, vous libérant des heures chaque semaine.",
     image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      // "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      // "https://live.staticflickr.com/65535/55249567629_b5561d5f8d_c.jpg",
+      "https://live.staticflickr.com/65535/55249513918_f4e1707899_c.jpg",
     benefits: [
       "Boost du panier moyen grâce aux suggestions IA",
       "Automatisation des emails, SMS et messages WhatsApp/Instagram",
@@ -54,7 +56,9 @@ export const sectors = [
     fullDescription:
       "Votre agence immobilière gagne en productivité grâce à un site vitrine optimisé et une application web gérant vos annonces. L’IA estime les biens et suggère les biens correspondants aux acheteurs. Un chatbot qualifie les leads 24/7 sur votre site et sur WhatsApp. L’automatisation relaie vos emails, SMS et messages Instagram au bon moment. La planification intelligente organise vos visites. L’analyse de données identifie les tendances du marché local.",
     image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+      // "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+      // "https://live.staticflickr.com/65535/55249389051_f64585343e_c.jpg",
+      "https://live.staticflickr.com/65535/55248498142_f31d498863_c.jpg", 
     benefits: [
       "Prospects qualifiés automatiquement via site, WhatsApp et Instagram",
       "Relances email, SMS et vocales sans effort",
@@ -82,7 +86,8 @@ export const sectors = [
     fullDescription:
       "Votre clinique ou cabinet médical optimise la prise de rendez-vous avec une plateforme web sécurisée. Un chatbot IA effectue un pré-triage et répond aux questions fréquentes, même via WhatsApp. L’automatisation envoie des rappels SMS/email et met à jour les dossiers. L’analyse des données de fréquentation améliore la planification des ressources. Option téléconsultation intégrée.",
     image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop",
+      // "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop",
+      "https://live.staticflickr.com/65535/55248523992_9ff2e538ae_c.jpg", 
     benefits: [
       "Moins d’appels pour les rendez-vous",
       "Réduction des rendez-vous non honorés",
@@ -190,7 +195,8 @@ export const sectors = [
     fullDescription:
       "Votre institution financière offre une expérience client premium via un portail web sécurisé. L’IA évalue les risques et personnalise les offres. Un chatbot guide les demandes de crédit ou de sinistre 24/7. L’automatisation traite les flux de documents et les notifications réglementaires. Intégration de paiements (Moncash, Natcash, Stripe) et gestion des réclamations. L’analyse de données détecte les fraudes et optimise les produits.",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      // "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      "https://live.staticflickr.com/65535/55249492999_7633f41ce3_c.jpg",
     benefits: [
       "Décision de crédit accélérée",
       "Fraude détectée avant impact",
@@ -217,7 +223,8 @@ export const sectors = [
     fullDescription:
       "Votre cabinet d’avocats modernise sa relation client avec un site vitrine et un espace client sécurisé. L’IA analyse les contrats et recherche des jurisprudences pertinentes. Un chatbot qualifie les prospects et prend les premières informations (même sur WhatsApp). L’automatisation génère des modèles d’actes et planifie les rendez-vous. L’analyse de données identifie vos domaines les plus rentables.",
     image:
-      "https://images.unsplash.com/photo-1589578527966-f6a2de1c6b5c?w=800&h=600&fit=crop",
+      // "https://images.unsplash.com/photo-1589578527966-f6a2de1c6b5c?w=800&h=600&fit=crop",
+      "https://live.staticflickr.com/65535/55249523594_3cb80a73f8_c.jpg",
     benefits: [
       "Recherche juridique accélérée",
       "Gain de temps sur les tâches répétitives",
@@ -225,13 +232,13 @@ export const sectors = [
       "Meilleure organisation du cabinet",
     ],
     recommendedServices: [
+      "scheduling",
       "web",
       "ai",
       "chatbot",
       "automation",
       "data-analysis",
-      "whatsapp-automation",
-      "scheduling",
+      "whatsapp-automation",     
     ],
   },
 //   {
@@ -268,7 +275,8 @@ export const sectors = [
     fullDescription:
       "Votre paroisse ou communauté religieuse dispose d’un site web moderne avec diffusion des offices en direct et en différé. Un système de don en ligne (Moncash, carte bancaire) simplifie la collecte. Le chatbot répond aux questions des fidèles 24/7 et relaie les intentions de prière. L’agenda partagé rappelle automatiquement les événements. Envoi de newsletters et messages WhatsApp pour garder le lien.",
     image:
-      "https://images.unsplash.com/photo-1508253730651-e5ace80cd3a1?w=800&h=600&fit=crop",
+      // "https://images.unsplash.com/photo-1508253730651-e5ace80cd3a1?w=800&h=600&fit=crop",
+      "https://live.staticflickr.com/65535/55249446983_2c03b0780c_c.jpg",
     benefits: [
       "Fidélisation de la communauté",
       "Collecte de dons simplifiée et sécurisée",
