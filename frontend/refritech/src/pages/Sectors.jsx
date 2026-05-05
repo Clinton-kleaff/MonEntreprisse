@@ -96,7 +96,7 @@ export default function Sectors() {
                     className="group block bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300"
                   >
                     {/* Image */}
-                    <div className="h-44 overflow-hidden">
+                    <div className="w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden">
                       <img
                         src={sector.image}
                         alt={sector.name}
