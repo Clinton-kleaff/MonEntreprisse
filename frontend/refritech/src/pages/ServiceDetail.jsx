@@ -30,6 +30,7 @@ import {
   Film,
   CreditCard,
   Package,
+  Target,
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
@@ -87,9 +88,10 @@ export default function ServiceDetail() {
     navigate("/order", {
       state: { service: { id: service.id, title: service.title } },
     });
-    toast.success(`Service "${service.title}" présélectionné !`, {
+    toast.success(`Service ${service.title} présélectionné !`, {
       duration: 3000,
-      icon: "🎯",
+      icon: <Target size={20} />,          
+      style: { background: "#d81b60", color: "#fff", fontFamily: "ui-sans-serif", fontSize: "13px" },
     });
   };
 
@@ -120,7 +122,7 @@ export default function ServiceDetail() {
                 <div className="p-3 rounded-xl bg-[#d81b60]/10">
                   <ServiceIcon className="w-7 h-7 text-[#d81b60]" />
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+                <h1 className="text-2xl md:text-4xl lg:text-4xl font-extrabold text-gray-900 leading-tight">
                   {service.title}
                 </h1>
               </div>
@@ -220,11 +222,11 @@ export default function ServiceDetail() {
                     style={{ borderRadius: '1rem' }}
                   >
                     {/* Fake browser top bar */}
-                    <div className="flex items-center gap-2 p-4 pb-2 bg-gray-50/80">
+                    {/* <div className="flex items-center gap-2 p-4 pb-2 bg-gray-50/80">
                       <div className="w-3 h-3 bg-red-400 rounded-full"></div>
                       <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
                       <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                    </div>
+                    </div> */}
 
                     <img
                       src={videoThumbnail}

@@ -49,7 +49,7 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-16 lg:grid lg:grid-cols-3">
             {/* Left: Logo */}
             <div className="justify-self-start">
-              <Link to="/" className="text-2xl font-bold text-[#d81b60]">
+              <Link to="/" className="text-3xl md:text-4xl lg:text-4xl font-bold text-[#d81b60]">
                 WaGradeTech
               </Link>
             </div>

@@ -14,40 +14,34 @@ import {
 } from "lucide-react";
 
 export const sectors = [
-  {
-    slug: "e-commerce",
-    name: "E-commerce",
-    icon: ShoppingCart,
+    {
+    slug: "sante",
+    name: "Santé",
+    icon: Stethoscope,
     shortDescription:
-      "Boutique en ligne, recommandations IA, chatbots 24/7, automatisation des commandes, WhatsApp & Instagram intégrés.",
+      "RDV en ligne, triage intelligent, rappels automatiques, dossiers patients, téléconsultation.",
     fullDescription:
-      "Un site web professionnel couplé à l’IA et à l’automatisation transforme votre e-commerce en une machine à vendre. Vos clients bénéficient de recommandations personnalisées (IA), d’un service client instantané (chatbot, WhatsApp, Instagram) et d’une expérience fluide. La gestion des stocks, les relances emails/SMS, les paiements (Moncash, Natcash, Stripe, cartes) et la synchronisation CRM s’exécutent automatiquement, vous libérant des heures chaque semaine.",
+      "Votre clinique ou cabinet médical optimise la prise de rendez-vous avec une plateforme web sécurisée. Un chatbot IA effectue un pré-triage et répond aux questions fréquentes, même via WhatsApp. L’automatisation envoie des rappels SMS/email et met à jour les dossiers. L’analyse des données de fréquentation améliore la planification des ressources. Option téléconsultation intégrée.",
     image:
-      // "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-      // "https://live.staticflickr.com/65535/55249567629_b5561d5f8d_c.jpg",
-      "https://live.staticflickr.com/65535/55249513918_f4e1707899_c.jpg",
+      // "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop",
+      "https://live.staticflickr.com/65535/55248523992_9ff2e538ae_c.jpg", 
     benefits: [
-      "Boost du panier moyen grâce aux suggestions IA",
-      "Automatisation des emails, SMS et messages WhatsApp/Instagram",
-      "Service client réactif 24/7 sans embaucher",
-      "Pilotage en temps réel avec les tableaux de bord",
-      "Intégration de paiements locaux (Moncash, Natcash) et internationaux (Stripe, CB)",
-      "Gestion automatisée des commandes et des retours",
+      "Moins d’appels pour les rendez-vous",
+      "Réduction des rendez-vous non honorés",
+      "Expérience patient moderne et rassurante",
+      "Gestion administrative allégée",
+      "Triage IA pour orienter vers le bon spécialiste",
     ],
     recommendedServices: [
       "web",
-      "ai",
       "chatbot",
       "automation",
       "data-analysis",
       "whatsapp-automation",
-      "instagram-autoreply",
-      "email-marketing",
-      "payment-integration",
-      "order-management",
+      "scheduling",
     ],
   },
-  {
+   {
     slug: "immobilier",
     name: "Immobilier",
     icon: Building,
@@ -77,31 +71,59 @@ export const sectors = [
       "scheduling",
     ],
   },
-  {
-    slug: "sante",
-    name: "Santé",
-    icon: Stethoscope,
+     {
+    slug: "finance",
+    name: "Finance & Assurance",
+    icon: Landmark,
     shortDescription:
-      "RDV en ligne, triage intelligent, rappels automatiques, dossiers patients, téléconsultation.",
+      "Portail client, score de risque IA, chatbot de souscription, automatisation des sinistres, paiements sécurisés.",
     fullDescription:
-      "Votre clinique ou cabinet médical optimise la prise de rendez-vous avec une plateforme web sécurisée. Un chatbot IA effectue un pré-triage et répond aux questions fréquentes, même via WhatsApp. L’automatisation envoie des rappels SMS/email et met à jour les dossiers. L’analyse des données de fréquentation améliore la planification des ressources. Option téléconsultation intégrée.",
+      "Votre institution financière offre une expérience client premium via un portail web sécurisé. L’IA évalue les risques et personnalise les offres. Un chatbot guide les demandes de crédit ou de sinistre 24/7. L’automatisation traite les flux de documents et les notifications réglementaires. Intégration de paiements (Moncash, Natcash, Stripe) et gestion des réclamations. L’analyse de données détecte les fraudes et optimise les produits.",
     image:
-      // "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop",
-      "https://live.staticflickr.com/65535/55248523992_9ff2e538ae_c.jpg", 
+      // "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      "https://live.staticflickr.com/65535/55249492999_7633f41ce3_c.jpg",
     benefits: [
-      "Moins d’appels pour les rendez-vous",
-      "Réduction des rendez-vous non honorés",
-      "Expérience patient moderne et rassurante",
-      "Gestion administrative allégée",
-      "Triage IA pour orienter vers le bon spécialiste",
+      "Décision de crédit accélérée",
+      "Fraude détectée avant impact",
+      "Satisfaction client maximale",
+      "Conformité réglementaire allégée",
+      "Paiements digitaux intégrés",
     ],
     recommendedServices: [
       "web",
+      "ai",
       "chatbot",
       "automation",
       "data-analysis",
+      "payment-integration",
       "whatsapp-automation",
+    ],
+  },
+    {
+    slug: "juridique",
+    name: "Juridique",
+    icon: Scale,
+    shortDescription:
+      "Gestion documentaire IA, chatbot d’accueil client, automatisation des actes, analyse de jurisprudence.",
+    fullDescription:
+      "Votre cabinet d’avocats modernise sa relation client avec un site vitrine et un espace client sécurisé. L’IA analyse les contrats et recherche des jurisprudences pertinentes. Un chatbot qualifie les prospects et prend les premières informations (même sur WhatsApp). L’automatisation génère des modèles d’actes et planifie les rendez-vous. L’analyse de données identifie vos domaines les plus rentables.",
+    image:
+      // "https://images.unsplash.com/photo-1589578527966-f6a2de1c6b5c?w=800&h=600&fit=crop",
+      "https://live.staticflickr.com/65535/55249523594_3cb80a73f8_c.jpg",
+    benefits: [
+      "Recherche juridique accélérée",
+      "Gain de temps sur les tâches répétitives",
+      "Acquisition de clients rationalisée",
+      "Meilleure organisation du cabinet",
+    ],
+    recommendedServices: [
       "scheduling",
+      "web",
+      "ai",
+      "chatbot",
+      "automation",
+      "data-analysis",
+      "whatsapp-automation",     
     ],
   },
   {
@@ -132,34 +154,7 @@ export const sectors = [
       "payment-integration",
     ],
   },
-  {
-    slug: "hospitalite",
-    name: "Hôtellerie & Restauration",
-    icon: UtensilsCrossed,
-    shortDescription:
-      "Réservation en ligne, chatbot concierge, menus intelligents, fidélisation automatique, commande via WhatsApp.",
-    fullDescription:
-      "Un site web avec système de réservation intégré booste votre activité. L’IA suggère des plats ou des séjours selon les préférences clients. Un chatbot répond instantanément aux demandes de disponibilité et prend les commandes via WhatsApp ou Instagram. L’automatisation gère les emails de confirmation, les offres de fidélité et les avis clients. L’analyse des données révèle les périodes de pointe et les plats les plus rentables.",
-    image:
-      "https://live.staticflickr.com/65535/55233850177_5a53cba067_c.jpg",
-    benefits: [
-      "Taux d’occupation / couverts augmenté",
-      "Fidélisation client automatisée (email, SMS, WhatsApp)",
-      "Service client disponible en continu",
-      "Décisions basées sur les données réelles",
-      "Réduction des erreurs de commande",
-    ],
-    recommendedServices: [
-      "web",
-      "ai",
-      "chatbot",
-      "automation",
-      "data-analysis",
-      "whatsapp-automation",
-      "instagram-autoreply",
-      "order-management",
-    ],
-  },
+
 //   {
 //     slug: "logistique",
 //     name: "Logistique & Transport",
@@ -186,61 +181,7 @@ export const sectors = [
 //       "whatsapp-automation",
 //     ],
 //   },
-  {
-    slug: "finance",
-    name: "Finance & Assurance",
-    icon: Landmark,
-    shortDescription:
-      "Portail client, score de risque IA, chatbot de souscription, automatisation des sinistres, paiements sécurisés.",
-    fullDescription:
-      "Votre institution financière offre une expérience client premium via un portail web sécurisé. L’IA évalue les risques et personnalise les offres. Un chatbot guide les demandes de crédit ou de sinistre 24/7. L’automatisation traite les flux de documents et les notifications réglementaires. Intégration de paiements (Moncash, Natcash, Stripe) et gestion des réclamations. L’analyse de données détecte les fraudes et optimise les produits.",
-    image:
-      // "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      "https://live.staticflickr.com/65535/55249492999_7633f41ce3_c.jpg",
-    benefits: [
-      "Décision de crédit accélérée",
-      "Fraude détectée avant impact",
-      "Satisfaction client maximale",
-      "Conformité réglementaire allégée",
-      "Paiements digitaux intégrés",
-    ],
-    recommendedServices: [
-      "web",
-      "ai",
-      "chatbot",
-      "automation",
-      "data-analysis",
-      "payment-integration",
-      "whatsapp-automation",
-    ],
-  },
-  {
-    slug: "juridique",
-    name: "Juridique",
-    icon: Scale,
-    shortDescription:
-      "Gestion documentaire IA, chatbot d’accueil client, automatisation des actes, analyse de jurisprudence.",
-    fullDescription:
-      "Votre cabinet d’avocats modernise sa relation client avec un site vitrine et un espace client sécurisé. L’IA analyse les contrats et recherche des jurisprudences pertinentes. Un chatbot qualifie les prospects et prend les premières informations (même sur WhatsApp). L’automatisation génère des modèles d’actes et planifie les rendez-vous. L’analyse de données identifie vos domaines les plus rentables.",
-    image:
-      // "https://images.unsplash.com/photo-1589578527966-f6a2de1c6b5c?w=800&h=600&fit=crop",
-      "https://live.staticflickr.com/65535/55249523594_3cb80a73f8_c.jpg",
-    benefits: [
-      "Recherche juridique accélérée",
-      "Gain de temps sur les tâches répétitives",
-      "Acquisition de clients rationalisée",
-      "Meilleure organisation du cabinet",
-    ],
-    recommendedServices: [
-      "scheduling",
-      "web",
-      "ai",
-      "chatbot",
-      "automation",
-      "data-analysis",
-      "whatsapp-automation",     
-    ],
-  },
+
 //   {
 //     slug: "securite",
 //     name: "Sécurité",
@@ -291,6 +232,68 @@ export const sectors = [
       "email-marketing",
       "payment-integration",
       "video-production",
+    ],
+  },
+   {
+    slug: "e-commerce",
+    name: "E-commerce",
+    icon: ShoppingCart,
+    shortDescription:
+      "Boutique en ligne, recommandations IA, chatbots 24/7, automatisation des commandes, WhatsApp & Instagram intégrés.",
+    fullDescription:
+      "Un site web professionnel couplé à l’IA et à l’automatisation transforme votre e-commerce en une machine à vendre. Vos clients bénéficient de recommandations personnalisées (IA), d’un service client instantané (chatbot, WhatsApp, Instagram) et d’une expérience fluide. La gestion des stocks, les relances emails/SMS, les paiements (Moncash, Natcash, Stripe, cartes) et la synchronisation CRM s’exécutent automatiquement, vous libérant des heures chaque semaine.",
+    image:
+      // "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      // "https://live.staticflickr.com/65535/55249567629_b5561d5f8d_c.jpg",
+      "https://live.staticflickr.com/65535/55249513918_f4e1707899_c.jpg",
+    benefits: [
+      "Boost du panier moyen grâce aux suggestions IA",
+      "Automatisation des emails, SMS et messages WhatsApp/Instagram",
+      "Service client réactif 24/7 sans embaucher",
+      "Pilotage en temps réel avec les tableaux de bord",
+      "Intégration de paiements locaux (Moncash, Natcash) et internationaux (Stripe, CB)",
+      "Gestion automatisée des commandes et des retours",
+    ],
+    recommendedServices: [
+      "web",
+      "ai",
+      "chatbot",
+      "automation",
+      "data-analysis",
+      "whatsapp-automation",
+      "instagram-autoreply",
+      "email-marketing",
+      "payment-integration",
+      "order-management",
+    ],
+  },
+    {
+    slug: "hospitalite",
+    // name: "Hôtellerie & Restauration",
+    name: "Hôtellerie & Resto",
+    icon: UtensilsCrossed,
+    shortDescription:
+      "Réservation en ligne, chatbot concierge, menus intelligents, fidélisation automatique, commande via WhatsApp.",
+    fullDescription:
+      "Un site web avec système de réservation intégré booste votre activité. L’IA suggère des plats ou des séjours selon les préférences clients. Un chatbot répond instantanément aux demandes de disponibilité et prend les commandes via WhatsApp ou Instagram. L’automatisation gère les emails de confirmation, les offres de fidélité et les avis clients. L’analyse des données révèle les périodes de pointe et les plats les plus rentables.",
+    image:
+      "https://live.staticflickr.com/65535/55233850177_5a53cba067_c.jpg",
+    benefits: [
+      "Taux d’occupation / couverts augmenté",
+      "Fidélisation client automatisée (email, SMS, WhatsApp)",
+      "Service client disponible en continu",
+      "Décisions basées sur les données réelles",
+      "Réduction des erreurs de commande",
+    ],
+    recommendedServices: [
+      "web",
+      "ai",
+      "chatbot",
+      "automation",
+      "data-analysis",
+      "whatsapp-automation",
+      "instagram-autoreply",
+      "order-management",
     ],
   },
 //   {

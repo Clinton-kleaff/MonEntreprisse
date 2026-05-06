@@ -3,10 +3,13 @@ import { useNavigate, Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 import { 
   User, Mail, Briefcase, MessageSquare, Send, CheckCircle, 
   ArrowRight, Clock, Shield, Headphones, FileText, ChevronDown,
-  Layout, Globe, Brain, MessageSquare as ChatIcon, Zap, TrendingUp
+  Layout, Globe, Brain, MessageSquare as ChatIcon, Zap, TrendingUp, 
+  BarChart, Cpu, Palette, Camera, CalendarDays, Film, CreditCard,
+  Package, Calendar,
 } from "lucide-react";
 import { services } from "../data/services";
 import { submitOrder } from "../utils/api";
@@ -20,6 +23,14 @@ const serviceIcons = {
   chatbot: ChatIcon,
   automation: Zap,
   seo: TrendingUp,
+  "data-analysis": BarChart,
+  "machine-learning": Cpu,
+  "graphic-design": Palette,
+  "whatsapp-automation": FaWhatsapp,
+  "instagram-autoreply": FaInstagram,
+  "email-marketing": Mail,
+  "scheduling": Calendar,
+  "payment-integration": CreditCard,  
 };
 
 export default function Order() {

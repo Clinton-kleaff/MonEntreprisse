@@ -9,7 +9,7 @@ import {
   Clock,
   Zap,
   DollarSign,
-  Target,               // ✅ nouveau lucide icon
+  Target,               
 } from "lucide-react";
 import { sectors } from "../data/sectors";
 import { services } from "../data/services";
@@ -27,8 +27,8 @@ export default function SectorDetail() {
   useEffect(() => {
     if (sector && !toastShownRef.current) {
       toast.success(`Découvrez nos solutions pour ${sector.name}`, {
-        icon: <Target size={20} />,           // ✅ icône Lucide
-        style: { background: "#d81b60", color: "#fff" },
+        icon: <Target size={20} />,          
+        style: { background: "#d81b60", color: "#fff", fontFamily: "ui-sans-serif", fontSize: "13px"  },
       });
       toastShownRef.current = true;
     }
