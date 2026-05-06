@@ -76,7 +76,7 @@ export default function Sectors() {
             className="text-center py-16 text-gray-500"
           >
             <p className="text-xl font-medium">Aucun secteur ne correspond à votre recherche.</p>
-            <p className="mt-2">Essayez avec d’autres mots-clés (ex: restauration, transport, politique…)</p>
+            <p className="mt-2">Essayez avec d’autres mots‑clés (ex: restauration, transport, politique…)</p>
           </motion.div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -122,6 +122,27 @@ export default function Sectors() {
             })}
           </div>
         )}
+
+        {/* CTA banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-20 bg-gradient-to-r from-[#d81b60]/5 to-[#d81b60]/10 rounded-2xl p-8 text-center border border-[#d81b60]/20"
+        >
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            Vous avez un projet spécifique ?
+          </h3>
+          <p className="text-gray-600 mb-6">
+            Contactez-nous pour une solution entièrement personnalisée.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center bg-[#d81b60] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#c2185b] transition shadow-lg shadow-[#d81b60]/30"
+          >
+            Discuter de votre projet
+          </Link>
+        </motion.div>
       </div>
     </div>
   );
